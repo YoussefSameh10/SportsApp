@@ -1,5 +1,5 @@
 //
-//  League.swift
+//  LeagueModel.swift
 //  SportsApp
 //
 //  Created by Youssef on 1/30/22.
@@ -7,8 +7,10 @@
 //
 
 import Foundation
+import CoreData
 
-class League{
-    var leagueModel: LeagueModel!
-    var isFavourite: Bool = false
+
+class LeagueModel: NSManagedObject{
+    
 }
+

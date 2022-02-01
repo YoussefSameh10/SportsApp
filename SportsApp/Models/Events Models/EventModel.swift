@@ -8,7 +8,7 @@
 
 import Foundation
 
-class EventModel{
+class EventModel: Decodable{
     
     var id: String!
     var name: String!

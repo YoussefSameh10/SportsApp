@@ -1,5 +1,5 @@
 //
-//  CoreDataDecodable.swift
+//  League.swift
 //  SportsApp
 //
 //  Created by Youssef on 1/30/22.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol CoreDataDecodable{
-    var decoder: JSONDecoder {get set}
+class FavouriteLeagues{
+    static var favouriteLeaguesArray: [LeagueModel] = []
 }

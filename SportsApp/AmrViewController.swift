@@ -10,25 +10,42 @@ import UIKit
 
 class AmrViewController: UIViewController {
 
+    var leagues: [LeagueModelAPI] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let apiServices = APIServices()
+        apiServices.getAllLeagues(responseDidArrive: { (leaguesArray) in
+            print("View: \(leaguesArray!.count)")
+            self.leagues.append(contentsOf: leaguesArray![0...9])
+            
+            
+        })
+        
+//        apiServices.getSports { (sportsArray) in
+//            print(sportsArray!.count)
+//            print(sportsArray![0].name)
+//        }
+        
+//        apiServices.getTeamsOfLeague(leagueName: "English Premier League") { (teamsArray) in
+//            print(teamsArray!.count)
+//            print(teamsArray![0].name)
+//        }
+//        apiServices.getResultsOfTeam(teamID: "133602") { (eventsArray) in
+//            print(eventsArray!.count)
+//            print(eventsArray![0].name)
+//        }
     }
     
-
-    @IBAction func navigate(_ sender: Any) {
-       
+    @IBAction func addToFavourites(_ sender: Any) {
+        let c = CoreDataServices.shared
+        for l in self.leagues{
+            //c.insertLeagues(league: l)
+        }
+        c.deleteLeague(id: leagues[7].id!)
+        let leagues = c.fetchLeagues()
+        print(leagues.count)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

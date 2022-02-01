@@ -9,8 +9,9 @@
 import Foundation
 
 protocol CoreDataOperations{
-    func insertLeagues()
+    func insertLeagues(league: LeagueModelAPI)
     func fetchLeagues() -> [LeagueModel]
-    func deleteLeague(league: LeagueModel)
+    func fetchLeague(id: String) -> LeagueModel!
+    func deleteLeague(id: String)
 }
 

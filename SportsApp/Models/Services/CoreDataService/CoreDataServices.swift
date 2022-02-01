@@ -16,32 +16,42 @@ extension CodingUserInfoKey {
 
 
 
-class CoreDataServices: CoreDataOperations, CoreDataDecodable{
+class CoreDataServices: CoreDataOperations{
     
     var appDelegate: AppDelegate!
     var viewContext : NSManagedObjectContext!
     var entity : NSEntityDescription!
-    var decoder = JSONDecoder()
     
-    init(){
+    static let shared = CoreDataServices()
+    
+    private init(){
+        //DispatchQueue.main.sync {
+            self.appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+            self.viewContext = self.appDelegate.persistentContainer.viewContext
+            self.entity = NSEntityDescription.entity(forEntityName: "LeagueModel", in: self.viewContext)
+        //}
         
-        self.appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-        self.viewContext = self.appDelegate.persistentContainer.viewContext
-        self.entity = NSEntityDescription.entity(forEntityName: "LeagueModel", in: self.viewContext)
-        self.decoder.userInfo[CodingUserInfoKey.managedObjectContext] = self.viewContext
     }
     
-    func insertLeagues(){
-        let leagues = self.fetchLeagues()
-        for league in leagues{
-            self.deleteLeague(league: league)
-        }
+    
+    func insertLeagues(league: LeagueModelAPI){
+//        let leagues = self.fetchLeagues()
+//        for league in leagues{
+//            self.deleteLeague(league: league)
+//
+//        }
+        let newLeague = LeagueModel(entity: self.entity, insertInto: viewContext)
+        newLeague.id = league.id
+        newLeague.name = league.name
+        newLeague.alternateName = league.alternateName
+        newLeague.sport = league.sport
         do{
             try viewContext.save()
         }
         catch let error{
             print(error.localizedDescription)
         }
+        
     }
     
     func fetchLeagues() -> [LeagueModel]{
@@ -55,8 +65,24 @@ class CoreDataServices: CoreDataOperations, CoreDataDecodable{
         return []
     }
     
-    func deleteLeague(league: LeagueModel){
-        viewContext.delete(league)
+    func fetchLeague(id: String) -> LeagueModel!{
+        let fetchRequest = NSFetchRequest<LeagueModel>(entityName: "LeagueModel")
+        fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+        var leaguesToDelete: [LeagueModel] = []
+        do{
+            leaguesToDelete = try viewContext.fetch(fetchRequest)
+            return leaguesToDelete[0]
+        }
+        catch let error{
+            print(error.localizedDescription)
+            return nil
+        }
+    }
+    
+    func deleteLeague(id: String){
+        
+        let leagueToDelete = self.fetchLeague(id: id)
+        viewContext.delete(leagueToDelete!)
         
         do{
             try viewContext.save()
@@ -65,4 +91,19 @@ class CoreDataServices: CoreDataOperations, CoreDataDecodable{
             print(error.localizedDescription)
         }
     }
+    
+    func clearStorage() {
+         
+          let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "LeagueModel")
+          let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+          do {
+              try viewContext.execute(batchDeleteRequest)
+                print("DataBase Freed Successfully")
+          } catch let error as NSError {
+            print("can't free database")
+
+              print(error)
+          }
+      }
+
 }
