@@ -1,5 +1,5 @@
 //
-//  LeaguesArrayModel.swift
+//  SportsArrayModel.swift
 //  SportsApp
 //
 //  Created by Youssef on 1/31/22.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class  LeaguesArrayModel: Decodable{
-    var leaguesArray: [LeagueModelAPI] = []
+class  SportsAPIResponse: Decodable{
+    var sports: [Sport]!
     enum CodingKeys: String, CodingKey{
-        case leaguesArray = "leagues"
+        case sports = "sports"
     }
 }

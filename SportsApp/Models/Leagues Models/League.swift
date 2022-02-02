@@ -8,16 +8,22 @@
 
 import Foundation
 
-class LeagueModelAPI: Decodable{
+class League: Decodable{
     var id: String!
     var name: String!
     var alternateName: String!
     var sport: String!
+    var currentSeason: String!
+    var youtubeLink: String!
+    var badge: String!
     
     enum CodingKeys: String, CodingKey{
         case id = "idLeague"
         case name = "strLeague"
         case alternateName = "strLeagueAlternate"
         case sport = "strSport"
+        case currentSeason = "strCurrentSeason"
+        case youtubeLink = "strYoutube"
+        case badge = "strBadge"
     }
 }

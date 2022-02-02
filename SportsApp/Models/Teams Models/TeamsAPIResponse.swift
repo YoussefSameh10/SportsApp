@@ -1,5 +1,5 @@
 //
-//  EventsArrayModel.swift
+//  TeamsArrayModel.swift
 //  SportsApp
 //
 //  Created by Youssef on 1/31/22.
@@ -8,9 +8,9 @@
 
 import Foundation
 
-class EventsArrayModel: Decodable{
-    var eventsArray: [EventModel]!
+class  TeamsAPIResponse: Decodable{
+    var teams: [Team]!
     enum CodingKeys: String, CodingKey{
-        case eventsArray = "results"
+        case teams = "teams"
     }
 }

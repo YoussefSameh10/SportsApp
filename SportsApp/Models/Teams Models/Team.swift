@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TeamModel: Decodable{
+class Team: Decodable{
     var id: String!
     var name: String!
     var shortName: String!

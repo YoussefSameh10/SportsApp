@@ -25,26 +25,21 @@ class CoreDataServices: CoreDataOperations{
     static let shared = CoreDataServices()
     
     private init(){
-        //DispatchQueue.main.sync {
-            self.appDelegate = (UIApplication.shared.delegate as! AppDelegate)
-            self.viewContext = self.appDelegate.persistentContainer.viewContext
-            self.entity = NSEntityDescription.entity(forEntityName: "LeagueModel", in: self.viewContext)
-        //}
-        
+        self.appDelegate = (UIApplication.shared.delegate as! AppDelegate)
+        self.viewContext = self.appDelegate.persistentContainer.viewContext
+        self.entity = NSEntityDescription.entity(forEntityName: "LeagueModel", in: self.viewContext)      
     }
     
-    
-    func insertLeagues(league: LeagueModelAPI){
-//        let leagues = self.fetchLeagues()
-//        for league in leagues{
-//            self.deleteLeague(league: league)
-//
-//        }
+    func insertLeagues(league: League){
+
         let newLeague = LeagueModel(entity: self.entity, insertInto: viewContext)
         newLeague.id = league.id
         newLeague.name = league.name
         newLeague.alternateName = league.alternateName
         newLeague.sport = league.sport
+        newLeague.badge = league.badge
+        newLeague.youtubeLink = league.youtubeLink
+        newLeague.currentSeason = league.currentSeason
         do{
             try viewContext.save()
         }

@@ -9,5 +9,5 @@
 import Foundation
 
 class FavouriteLeagues{
-    static var favouriteLeaguesArray: [LeagueModel] = []
+    static var favourites: [LeagueModel] = []
 }

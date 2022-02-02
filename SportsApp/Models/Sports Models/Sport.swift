@@ -10,7 +10,7 @@ import Foundation
 
 
 
-class SportModel: Decodable{
+class Sport: Decodable{
     var id: String!
     var name: String!
     var logo: String!
