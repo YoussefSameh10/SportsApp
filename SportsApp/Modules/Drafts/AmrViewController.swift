@@ -22,7 +22,7 @@ class AmrViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.testAPI()
+        //self.testAPI()
     }
     
     
@@ -75,7 +75,7 @@ class AmrViewController: UIViewController {
     
     //MARK:- Actions
     @IBAction func addToFavourites(_ sender: Any) {
-        self.testCoreData()
+        //self.testCoreData()
     }
     
 }

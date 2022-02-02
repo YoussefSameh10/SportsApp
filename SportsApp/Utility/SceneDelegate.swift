@@ -22,8 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let _ = (scene as? UIWindowScene) else { return }
         
         
-         let storyboard = UIStoryboard(name: "Amr", bundle: nil)
-                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "Amr")
+         let storyboard = UIStoryboard(name: "Youssef", bundle: nil)
+                 let initialViewController = storyboard.instantiateViewController(withIdentifier: "LeaguesTableViewController")
                  self.window?.rootViewController = initialViewController
          
          

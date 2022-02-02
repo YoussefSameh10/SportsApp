@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VsU-WP-1mU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dCD-1C-L8U">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -20,7 +20,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I5p-XJ-Jvq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="19" y="147"/>
+            <point key="canvasLocation" x="-710" y="-255"/>
         </scene>
         <!--Amr-->
         <scene sceneID="MNd-F6-t7t">
@@ -28,7 +28,85 @@
                 <viewControllerPlaceholder storyboardName="Amr" referencedIdentifier="Amr" id="DZw-td-Te2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VpK-Mq-WHn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="598" y="-50"/>
+            <point key="canvasLocation" x="1529" y="-141"/>
+        </scene>
+        <!--Leagues Table View Controller-->
+        <scene sceneID="eSP-Ri-YYd">
+            <objects>
+                <tableViewController storyboardIdentifier="LeaguesTableViewController" id="dCD-1C-L8U" customClass="LeaguesTableViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="cWf-Zs-fjk">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="162" id="9dS-gn-oF9" customClass="LeagueCell" customModule="SportsApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9dS-gn-oF9" id="iaW-hS-pIQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="aZ7-xP-tpc">
+                                            <rect key="frame" x="102" y="66.5" width="230" height="29"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AS9-sE-HSc">
+                                            <rect key="frame" x="16" y="46" width="70" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="tNg-Ts-3eg"/>
+                                            </constraints>
+                                        </imageView>
+                                        <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfE-Gq-47L">
+                                            <rect key="frame" x="348" y="61" width="50" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="Oy1-rv-bwM"/>
+                                                <constraint firstAttribute="height" constant="40" id="QzU-xp-XtS"/>
+                                            </constraints>
+                                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <state key="normal" backgroundImage="youtube.png">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="gotoYoutube:" destination="9dS-gn-oF9" eventType="touchUpInside" id="AU2-yz-hn8"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="AS9-sE-HSc" firstAttribute="centerY" secondItem="iaW-hS-pIQ" secondAttribute="centerY" id="3UC-2Q-kdt"/>
+                                        <constraint firstItem="aZ7-xP-tpc" firstAttribute="centerY" secondItem="QfE-Gq-47L" secondAttribute="centerY" id="3fx-6N-w7H"/>
+                                        <constraint firstItem="AS9-sE-HSc" firstAttribute="leading" secondItem="iaW-hS-pIQ" secondAttribute="leading" constant="16" id="BUC-AM-Lv9"/>
+                                        <constraint firstItem="aZ7-xP-tpc" firstAttribute="leading" secondItem="AS9-sE-HSc" secondAttribute="trailing" constant="16" id="TfO-fo-Vmw"/>
+                                        <constraint firstItem="aZ7-xP-tpc" firstAttribute="centerY" secondItem="iaW-hS-pIQ" secondAttribute="centerY" id="UGo-5f-BS5"/>
+                                        <constraint firstItem="AS9-sE-HSc" firstAttribute="top" secondItem="iaW-hS-pIQ" secondAttribute="topMargin" constant="35" id="e9Q-hN-CGO"/>
+                                        <constraint firstItem="QfE-Gq-47L" firstAttribute="leading" secondItem="aZ7-xP-tpc" secondAttribute="trailing" constant="16" id="rVG-dD-ZVE"/>
+                                        <constraint firstItem="QfE-Gq-47L" firstAttribute="centerY" secondItem="iaW-hS-pIQ" secondAttribute="centerY" id="sNd-Rd-oIx"/>
+                                        <constraint firstAttribute="trailing" secondItem="QfE-Gq-47L" secondAttribute="trailing" constant="16" id="yff-iZ-jxH"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="badge" destination="AS9-sE-HSc" id="G18-4l-4MS"/>
+                                    <outlet property="name" destination="aZ7-xP-tpc" id="0qe-W1-K30"/>
+                                    <outlet property="youtubeButton" destination="QfE-Gq-47L" id="kxq-GO-s44"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dCD-1C-L8U" id="c0l-2W-LDW"/>
+                            <outlet property="delegate" destination="dCD-1C-L8U" id="XwL-KK-SOc"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="leaguesTable" destination="cWf-Zs-fjk" id="cdW-uN-Bax"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NgA-Ni-yOG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="386.95652173913044" y="-255.13392857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="youtube.png" width="320" height="240"/>
+    </resources>
 </document>
