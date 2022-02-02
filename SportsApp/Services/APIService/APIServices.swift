@@ -23,6 +23,7 @@ class APIServices{
                 responseDidArrive(nil)
                 return
             }
+            
             responseDidArrive(apiResponse.sports)
         }
     }
