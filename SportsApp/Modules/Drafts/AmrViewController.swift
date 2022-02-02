@@ -10,15 +10,16 @@ import UIKit
 
 class AmrViewController: UIViewController {
 
-    //MARK:- Outlets
+    // MARK: - Outlets
     
     
     
-    //MARK:- Properties
+    // MARK: - Properties
     var leagues: [League] = []
+    var sports : [Sport]!
 
     
-    //MARK:- LifeCycle
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -48,9 +49,14 @@ class AmrViewController: UIViewController {
     }
     
     func sportsResponseDidArrive(sports: [Sport]?){
-        print("Sports")
+        print("1.------------")
+        print("Sports retrieved successfully")
         print(sports!.count)
         print(sports![0].name!)
+        print("2.------------")
+        self.sports = sports
+        print(self.sports.count)
+        print(self.sports[0].name!)
     }
     
     func leaguesResponseDidArrive(leagues: [League]?){
