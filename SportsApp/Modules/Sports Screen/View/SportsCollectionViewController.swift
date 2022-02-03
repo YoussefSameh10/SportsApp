@@ -33,7 +33,7 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         sportsPresenter.attachView(view: self)
         sportsPresenter.getSports()
 
-        print("------------------------")
+        //print("------------------------")
         //print(sportsPresenter.sports.count)
         //print(sportsPresenter.sports[0].name!)
         
@@ -56,7 +56,7 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
 
        override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        print("items in sections")
+        //print("items in sections")
         return sportsPresenter.sports.count
     }
 
@@ -64,16 +64,28 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SportsCustomCollectionViewCell
     
         cell.sportNameLabel.text = sportsPresenter.sports[indexPath.row].name!
-        print(cell.sportNameLabel.text!)
         cell.sportImage.kf.setImage(with : URL(string: sportsPresenter.sports[indexPath.row].logo))
-        //myimage.kf.setImage(with : URL(string: movieAtRow.image ?? ""))
-        
-        
+
+        cell.layer.cornerRadius = 25
+        cell.backgroundColor = .gray
+        cell.sportNameLabel.layer.masksToBounds = true
+        cell.sportNameLabel.layer.cornerRadius = 25
         return cell
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+
+        let storyboard = UIStoryboard(name: "Youssef", bundle: nil)
+        
+        let leaguesVC = storyboard.instantiateViewController(withIdentifier: "LeaguesTableViewController") as! LeaguesTableViewController
+        leaguesVC.leaguesPresenter = LeaguesTablePresenter(apiService: APIServices())
+        leaguesVC.leaguesPresenter.sportName = sportsPresenter.sports[indexPath.row].name
+        self.navigationController?.pushViewController(leaguesVC, animated: true)
+    }
+
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width/4, height:UIScreen.main.bounds.height/2)
+        return CGSize(width: UIScreen.main.bounds.width/3, height:UIScreen.main.bounds.height/2)
     }
 
   
