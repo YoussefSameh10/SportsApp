@@ -49,6 +49,7 @@
                                 <connections>
                                     <outlet property="sportImage" destination="GpG-fe-azX" id="TpN-UB-ha9"/>
                                     <outlet property="sportNameLabel" destination="ERD-dp-AmX" id="jru-nm-nh1"/>
+                                    <segue destination="t9l-VX-qm2" kind="show" id="dMO-dN-dfW"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -89,15 +90,15 @@
             </objects>
             <point key="canvasLocation" x="1562" y="-1294"/>
         </scene>
-        <!--Youssef-->
+        <!--LeaguesTableViewController-->
         <scene sceneID="x40-pR-cLJ">
             <objects>
-                <viewControllerPlaceholder storyboardIdentifier="Youssef" storyboardName="Youssef" referencedIdentifier="Youssef" id="t9l-VX-qm2" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardIdentifier="Youssef" storyboardName="Youssef" referencedIdentifier="LeaguesTableViewController" id="t9l-VX-qm2" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="TM8-oA-2Ol"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y0a-j7-BPg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="26"/>
+            <point key="canvasLocation" x="2461" y="-656"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="wWw-Mf-BQ2">

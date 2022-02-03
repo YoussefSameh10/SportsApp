@@ -66,10 +66,14 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         cell.sportNameLabel.text = sportsPresenter.sports[indexPath.row].name!
         print(cell.sportNameLabel.text!)
         cell.sportImage.kf.setImage(with : URL(string: sportsPresenter.sports[indexPath.row].logo))
-        //myimage.kf.setImage(with : URL(string: movieAtRow.image ?? ""))
-        
-        
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+       
+//        let storyboard = UIStoryboard(name: "Youssef", bundle: nil)
+//        let leaguesVC = storyboard.instantiateViewController(withIdentifier: "LeaguesTableViewController") as! LeaguesTableViewController
+//        leaguesVC.presenter.sportName = sportsPresenter.sports[indexPath.row].name
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
