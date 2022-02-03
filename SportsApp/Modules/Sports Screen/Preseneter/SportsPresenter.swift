@@ -31,8 +31,8 @@ class SportsPreseneter {
     func sportsResponseDidArrive(sports: [Sport]?){
         
         self.sports = sports!
-        print("presenter here")
-        print(self.sports.count)
+        //print("presenter here")
+        //print(self.sports.count)
         DispatchQueue.main.async {
             self.sportsView.hideIndicator()
             self.sportsView.renderSportsData()

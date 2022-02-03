@@ -16,15 +16,14 @@ class LeaguesTableViewController: UITableViewController {
     @IBOutlet var leaguesTable: UITableView!
     
     
-    var presenter: LeaguesTablePresenter!
+    var leaguesPresenter: LeaguesTablePresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        presenter = LeaguesTablePresenter(apiService: APIServices())
-        presenter.attachView(viewController: self)
-        presenter.getLeagues()
+        self.title = "Leagues"
+        leaguesPresenter.attachView(viewController: self)
+        leaguesPresenter.getLeagues()
     
     }
 
@@ -37,7 +36,7 @@ class LeaguesTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return presenter.leagues.count
+        return leaguesPresenter.leagues.count
     }
 
     
@@ -45,8 +44,8 @@ class LeaguesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! LeagueCell
 
         // Configure the cell...
-        cell.badge.kf.setImage(with: URL(string: presenter.leagues[indexPath.row].badge))
-        cell.name.text = presenter.leagues[indexPath.row].name
+        cell.badge.kf.setImage(with: URL(string: leaguesPresenter.leagues[indexPath.row].badge))
+        cell.name.text = leaguesPresenter.leagues[indexPath.row].name
 
         return cell
     }
