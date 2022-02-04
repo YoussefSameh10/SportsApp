@@ -27,7 +27,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                  let initialViewController = storyboard.instantiateViewController(withIdentifier: "InitialTabBarController")
                  self.window?.rootViewController = initialViewController
          
-         
+         /*
+          InitialTabBarController
+          LeagueDetailsViewController
+          */
         
         
         
