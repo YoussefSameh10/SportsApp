@@ -7,8 +7,13 @@
 //
 
 import Foundation
+protocol SportsPresenterProtocol{
+    func attachView(view: SportsView)
+    func getSports()
+    
+}
 
-class SportsPreseneter {
+class SportsPreseneter : SportsPresenterProtocol{
     
     // MARK: - Properties
     var sportsView : SportsView!
@@ -31,8 +36,7 @@ class SportsPreseneter {
     func sportsResponseDidArrive(sports: [Sport]?){
         
         self.sports = sports!
-        //print("presenter here")
-        //print(self.sports.count)
+       
         DispatchQueue.main.async {
             self.sportsView.hideIndicator()
             self.sportsView.renderSportsData()

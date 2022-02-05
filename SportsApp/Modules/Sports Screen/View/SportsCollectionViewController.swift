@@ -21,6 +21,7 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
     // MARK: - Properties
     let indicator = UIActivityIndicatorView(style: .large)
     var sportsPresenter : SportsPreseneter!
+    //var sportsPresenter : SportsPresenterProtocol!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -32,7 +33,7 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         sportsPresenter = SportsPreseneter(apiServices: APIServices())
         sportsPresenter.attachView(view: self)
         sportsPresenter.getSports()
-
+        
         //print("------------------------")
         //print(sportsPresenter.sports.count)
         //print(sportsPresenter.sports[0].name!)
@@ -51,25 +52,28 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
     func renderSportsData (){
         self.collectionView.reloadData()
     }
+    func sportsCellShape(_ cell: SportsCustomCollectionViewCell) {
+        cell.layer.cornerRadius = 25
+        cell.backgroundColor = .gray
+        cell.sportNameLabel.layer.masksToBounds = true
+        cell.sportNameLabel.layer.cornerRadius = 25
+    }
 
     // MARK: UICollectionViewDataSource
-
+  
        override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        //print("items in sections")
+       
         return sportsPresenter.sports.count
     }
+    
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SportsCustomCollectionViewCell
     
         cell.sportNameLabel.text = sportsPresenter.sports[indexPath.row].name!
         cell.sportImage.kf.setImage(with : URL(string: sportsPresenter.sports[indexPath.row].logo))
-
-        cell.layer.cornerRadius = 25
-        cell.backgroundColor = .gray
-        cell.sportNameLabel.layer.masksToBounds = true
-        cell.sportNameLabel.layer.cornerRadius = 25
+        
+        sportsCellShape(cell)
         return cell
     }
     

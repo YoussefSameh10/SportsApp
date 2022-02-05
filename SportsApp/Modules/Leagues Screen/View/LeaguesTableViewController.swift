@@ -58,11 +58,20 @@ class LeaguesTableViewController: UITableViewController {
         }
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Amr", bundle: nil)
+        let leagueDetailsVC = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsViewController") as! LeagueDetailsViewController
+        leagueDetailsVC.leagueDetailsPresenter = LeagueDetailsPresenter(apiServices: APIServices())
+        leagueDetailsVC.leagueDetailsPresenter.leagueID = leaguesPresenter.leagues[indexPath.row].id
+        self.navigationController?.pushViewController(leagueDetailsVC, animated: true)
+    }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UIScreen.main.bounds.height/8
     }
     
+
     func startIndicator() {
         indicator.center = self.view.center
         self.view.addSubview(indicator)
@@ -77,4 +86,5 @@ extension LeaguesTableViewController: LeaguesView{
     func stopIndicator() {
         indicator.stopAnimating()
     }
+
 }
