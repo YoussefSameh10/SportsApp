@@ -20,8 +20,7 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
 
     // MARK: - Properties
     let indicator = UIActivityIndicatorView(style: .large)
-    var sportsPresenter : SportsPreseneter!
-    //var sportsPresenter : SportsPresenterProtocol!
+    var sportsPresenter : SportsPresenterProtocol!
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -34,10 +33,8 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         sportsPresenter.attachView(view: self)
         sportsPresenter.getSports()
         
-        //print("------------------------")
-        //print(sportsPresenter.sports.count)
-        //print(sportsPresenter.sports[0].name!)
-        
+        self.tabBarController?.tabBar.items?[1].title = "Favourites"
+        self.tabBarController?.tabBar.items?[1].image = UIImage(systemName: "star")        
     }
 
     // MARK: - Methods

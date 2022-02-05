@@ -27,12 +27,12 @@ class TeamDetailsViewController: UIViewController, TeamDetailsView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        teamPresenter = TeamDetailsPresenter()
+        //teamPresenter = TeamDetailsPresenter()
         teamPresenter.attachView(teamDetailsView: self)
         
-        stadiumImage.kf.setImage(with: URL(string: teamPresenter.team.stadiumImage))
-        logoImage.kf.setImage(with: URL(string: teamPresenter.team.teamBadge))
-        jerseyImage.kf.setImage(with: URL(string: teamPresenter.team.teamJersey))
+        stadiumImage.kf.setImage(with: URL(string: teamPresenter.team.stadiumImage ?? ""))
+        logoImage.kf.setImage(with: URL(string: teamPresenter.team.teamBadge ?? ""))
+        jerseyImage.kf.setImage(with: URL(string: teamPresenter.team.teamJersey ?? ""))
         name.text = teamPresenter.team.name
         establishmentYear.text = teamPresenter.team.establishmentYear
         stadiumName.text = teamPresenter.team.stadium

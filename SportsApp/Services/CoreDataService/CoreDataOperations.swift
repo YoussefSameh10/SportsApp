@@ -10,7 +10,7 @@ import Foundation
 
 protocol CoreDataOperations{
     func insertLeagues(league: League)
-    func fetchLeagues() -> [LeagueModel]
+    func fetchLeagues() -> [League]
     func fetchLeague(id: String) -> LeagueModel!
     func deleteLeague(id: String)
 }

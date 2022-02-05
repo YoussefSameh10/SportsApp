@@ -40,6 +40,8 @@ class CoreDataServices: CoreDataOperations{
         newLeague.badge = league.badge
         newLeague.youtubeLink = league.youtubeLink
         newLeague.currentSeason = league.currentSeason
+        
+        
         do{
             try viewContext.save()
         }
@@ -49,10 +51,11 @@ class CoreDataServices: CoreDataOperations{
         
     }
     
-    func fetchLeagues() -> [LeagueModel]{
+    func fetchLeagues() -> [League]{
         let fetchRequest = NSFetchRequest<LeagueModel>(entityName: "LeagueModel")
         do{
-            return try viewContext.fetch(fetchRequest)
+            let leagues = try viewContext.fetch(fetchRequest)
+            return mapLeagueModelToLeague(leagues: leagues)
         }
         catch let error{
             print(error.localizedDescription)
@@ -66,7 +69,10 @@ class CoreDataServices: CoreDataOperations{
         var leaguesToDelete: [LeagueModel] = []
         do{
             leaguesToDelete = try viewContext.fetch(fetchRequest)
-            return leaguesToDelete[0]
+            if leaguesToDelete.count > 0 {
+                return leaguesToDelete[0]
+            }
+            return nil
         }
         catch let error{
             print(error.localizedDescription)
@@ -100,5 +106,19 @@ class CoreDataServices: CoreDataOperations{
               print(error)
           }
       }
+    
+    func mapLeagueModelToLeague(leagues: [LeagueModel]) -> [League]{
+        return leagues.map { (leagueModel) -> League in
+            let newLeague = League()
+            newLeague.id = leagueModel.id
+            newLeague.name = leagueModel.name
+            newLeague.alternateName = leagueModel.alternateName
+            newLeague.sport = leagueModel.sport
+            newLeague.badge = leagueModel.badge
+            newLeague.youtubeLink = leagueModel.youtubeLink
+            newLeague.currentSeason = leagueModel.currentSeason
+            return newLeague
+        }
+    }
 
 }
