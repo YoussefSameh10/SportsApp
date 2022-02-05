@@ -102,8 +102,14 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         let awayScore = events?[indexPath.row].awayScore ?? ""
         let round = events?[indexPath.row].round
         
-        cell.eventRoundLabel.text = "Round \(round!) "
-        cell.eventImage.kf.setImage(with: URL(string: events?[indexPath.row].teamVsTeamImage ?? ""))
+        //cell.eventRoundLabel.text = "Round \(round!) "
+        if events?[indexPath.row].teamVsTeamImage != nil {
+             cell.eventImage.kf.setImage(with: URL(string: events![indexPath.row].teamVsTeamImage!), placeholder: UIImage(named: "brokenImage.png"))
+        }
+        else{
+            cell.eventImage.image = UIImage(named: "brokenImage.png")
+        }
+       
         if awayScore == ""
         {
             cell.eventResultLabel.text = ""
@@ -120,17 +126,27 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
             
             events = leagueDetailsPresenter.events.filter { $0.awayScore == nil}
             print("no of items in upcoming events VC = \(events?.count ?? 0)")
+            if events!.count == 0 {
+                return 1
+            }
             return events?.count ?? 0
         }
         else if collectionView == self.latestResultCollectionVC {
             //else if collectionView == self.latestResultCollectionVC
             events = leagueDetailsPresenter.events.filter { $0.awayScore != nil}
             print("no of items in latest reasult VC = \(events?.count ?? 0)")
+            if events!.count == 0 {
+                return 1
+            }
             return events?.count ?? 0
             
         }
         else {
             print("number of teams \(leagueDetailsPresenter.teams.count)")
+            
+            if leagueDetailsPresenter.teams.count == 0 {
+                //return 1
+            }
             return leagueDetailsPresenter.teams.count
         }
         //return events?.count ?? 0
@@ -142,9 +158,15 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upComingCell", for: indexPath) as! eventsCell
             events = leagueDetailsPresenter.events.filter { $0.awayScore == nil}
-            eventsCellSetUp(cell, indexPath)
-            print(events?[indexPath.row].time! ?? "time=nil")
-            print(events?[indexPath.row].awayTeam! ?? "awayTeam=nil")
+            
+            if events!.count != 0 {
+                eventsCellSetUp(cell, indexPath)
+            }
+            else{
+                cell.eventRoundLabel.text = "No Events"
+            }
+            
+
             return cell
            
         }
@@ -152,15 +174,26 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
             
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latestResultCell", for: indexPath) as! eventsCell
             events = leagueDetailsPresenter.events.filter { $0.awayScore != nil}
-            eventsCellSetUp(cell, indexPath)
-            print(events?[indexPath.row].time! ?? "time=nil")
-            print(events?[indexPath.row].awayTeam! ?? "awayTeam=nil")
-             return cell
+            if events!.count != 0 {
+                eventsCellSetUp(cell, indexPath)
+            }
+            else{
+                cell.eventRoundLabel.text = "No Events"
+            }
+//            print(events?[indexPath.row].time! ?? "time=nil")
+//            print(events?[indexPath.row].awayTeam! ?? "awayTeam=nil")
+            return cell
           
         }
         else{
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TeamsCell", for: indexPath) as! TeamsCell
-            cell.teamImage.kf.setImage(with: URL(string: leagueDetailsPresenter.teams[indexPath.row].teamBadge))
+            if leagueDetailsPresenter.teams[indexPath.row].teamBadge != nil {
+                cell.teamImage.kf.setImage(with: URL(string: leagueDetailsPresenter.teams[indexPath.row].teamBadge), placeholder: UIImage(named: "brokenImage.png"))
+            }
+            else{
+                cell.teamImage.image = UIImage(named: "brokenImage.png")
+            }
+            
             return cell
         }
         

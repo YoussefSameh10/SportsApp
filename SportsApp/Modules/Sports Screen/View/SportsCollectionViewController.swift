@@ -68,7 +68,7 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SportsCustomCollectionViewCell
     
         cell.sportNameLabel.text = sportsPresenter.sports[indexPath.row].name!
-        cell.sportImage.kf.setImage(with : URL(string: sportsPresenter.sports[indexPath.row].logo))
+        cell.sportImage.kf.setImage(with : URL(string: sportsPresenter.sports[indexPath.row].logo), placeholder: UIImage(named: "brokenImage.png"))
         
         sportsCellShape(cell)
         return cell

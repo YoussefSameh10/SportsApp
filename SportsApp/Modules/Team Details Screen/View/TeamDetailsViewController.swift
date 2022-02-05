@@ -27,12 +27,32 @@ class TeamDetailsViewController: UIViewController, TeamDetailsView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(teamPresenter.team.establishmentYear)
+        print(teamPresenter.team.stadium)
+        
         //teamPresenter = TeamDetailsPresenter()
         teamPresenter.attachView(teamDetailsView: self)
+        if teamPresenter.team.stadiumImage != nil {
+            stadiumImage.kf.setImage(with: URL(string: teamPresenter.team.stadiumImage), placeholder: UIImage(named: "stadiumPlaceholder.png"))
+        }
+        else{
+            stadiumImage.image = UIImage(named: "stadiumPlaceholder.png")
+        }
         
-        stadiumImage.kf.setImage(with: URL(string: teamPresenter.team.stadiumImage ?? ""))
-        logoImage.kf.setImage(with: URL(string: teamPresenter.team.teamBadge ?? ""))
-        jerseyImage.kf.setImage(with: URL(string: teamPresenter.team.teamJersey ?? ""))
+        if teamPresenter.team.teamBadge != nil {
+            logoImage.kf.setImage(with: URL(string: teamPresenter.team.teamBadge), placeholder: UIImage(named: "brokenImage.png"))
+        }
+        else{
+            logoImage.image = UIImage(named: "brokenImage.png")
+        }
+        
+        if teamPresenter.team.teamJersey != nil {
+            jerseyImage.kf.setImage(with: URL(string: teamPresenter.team.teamJersey), placeholder: UIImage(named: "brokenImage.png"))
+        }
+        else{
+            jerseyImage.image = UIImage(named: "brokenImage.png")
+        }
+
         name.text = teamPresenter.team.name
         establishmentYear.text = teamPresenter.team.establishmentYear
         stadiumName.text = teamPresenter.team.stadium

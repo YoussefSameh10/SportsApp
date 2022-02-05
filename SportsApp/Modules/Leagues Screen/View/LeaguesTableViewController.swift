@@ -57,7 +57,14 @@ class LeaguesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! LeagueCell
 
         // Configure the cell...
-        cell.badge.kf.setImage(with: URL(string: leaguesPresenter.leagues[indexPath.row].badge))
+        //cell.badge.kf.setImage(with: URL(string: leaguesPresenter.leagues[indexPath.row].badge))
+        if leaguesPresenter.leagues[indexPath.row].badge != nil {
+            cell.badge.kf.setImage(with: URL(string: leaguesPresenter.leagues[indexPath.row].badge), placeholder: UIImage(named: "brokenImage.png"))
+        }
+        else{
+            cell.badge.image = UIImage(named: "brokenImage.png")
+        }
+        
         cell.name.text = leaguesPresenter.leagues[indexPath.row].name
         cell.url = leaguesPresenter.leagues[indexPath.row].youtubeLink
         cell.showAlert = showAlert
