@@ -30,7 +30,15 @@ class LeaguesTableViewController: UITableViewController {
         startIndicator()
         leaguesPresenter.attachView(viewController: self)
         leaguesPresenter.getLeagues()
+        
     
+    }
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "Not found", message: "this league has no YouTube channel", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 
     // MARK: - Table view data source
@@ -52,9 +60,11 @@ class LeaguesTableViewController: UITableViewController {
         cell.badge.kf.setImage(with: URL(string: leaguesPresenter.leagues[indexPath.row].badge))
         cell.name.text = leaguesPresenter.leagues[indexPath.row].name
         cell.url = leaguesPresenter.leagues[indexPath.row].youtubeLink
+        cell.showAlert = showAlert
         
         if(cell.url == ""){
-            cell.youtubeButton.isEnabled = false
+            //cell.youtubeButton.isHidden = true
+            
         }
         return cell
     }
