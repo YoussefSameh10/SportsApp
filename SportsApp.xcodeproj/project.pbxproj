@@ -38,6 +38,10 @@
 		E8D30A3127A5ED7000E34BAC /* Amr.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D30A3027A5ED7000E34BAC /* Amr.storyboard */; };
 		E8D30A3327A5ED9000E34BAC /* Youssef.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D30A3227A5ED9000E34BAC /* Youssef.storyboard */; };
 		E8E95F3B27AB2B59001ADBC0 /* LeaguesTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E95F3A27AB2B59001ADBC0 /* LeaguesTablePresenter.swift */; };
+		E8F7B9C627AD6515004ECEA2 /* TeamDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7B9C527AD6515004ECEA2 /* TeamDetailsPresenter.swift */; };
+		E8F7B9C827AD654B004ECEA2 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7B9C727AD654B004ECEA2 /* TeamDetailsViewController.swift */; };
+		E8FFC11F27AC3737004665BA /* FavouriteLeaguesTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFC11E27AC3737004665BA /* FavouriteLeaguesTablePresenter.swift */; };
+		E8FFC12127AC3784004665BA /* FavouriteLeaguesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFC12027AC3784004665BA /* FavouriteLeaguesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +80,10 @@
 		E8D30A3027A5ED7000E34BAC /* Amr.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Amr.storyboard; sourceTree = "<group>"; };
 		E8D30A3227A5ED9000E34BAC /* Youssef.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Youssef.storyboard; sourceTree = "<group>"; };
 		E8E95F3A27AB2B59001ADBC0 /* LeaguesTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTablePresenter.swift; sourceTree = "<group>"; };
+		E8F7B9C527AD6515004ECEA2 /* TeamDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsPresenter.swift; sourceTree = "<group>"; };
+		E8F7B9C727AD654B004ECEA2 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
+		E8FFC11E27AC3737004665BA /* FavouriteLeaguesTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteLeaguesTablePresenter.swift; sourceTree = "<group>"; };
+		E8FFC12027AC3784004665BA /* FavouriteLeaguesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteLeaguesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,8 +144,11 @@
 		E83E80CC27AACEB8009784C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				E8F7B9C227AD64A6004ECEA2 /* Team Details Screen */,
+				E8FFC11B27AC36EB004665BA /* Favourite Leagues Screen */,
 				E876CEC927AB1568008A0D12 /* Leagues Screen */,
 				8ACFF59927AAEBD900BA55D4 /* Sports Screen */,
+				E8FFC11A27AC34C5004665BA /* Shared Views */,
 				E83E80CE27AACF4A009784C0 /* Main */,
 				E83E80CD27AACEEE009784C0 /* Drafts */,
 			);
@@ -302,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				E876CECA27AB15A1008A0D12 /* LeaguesTableViewController.swift */,
-				E876CECC27AB1767008A0D12 /* LeagueCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -313,6 +323,64 @@
 				E8E95F3A27AB2B59001ADBC0 /* LeaguesTablePresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E8F7B9C227AD64A6004ECEA2 /* Team Details Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E8F7B9C327AD64BD004ECEA2 /* Presenter  */,
+				E8F7B9C427AD64DF004ECEA2 /* View */,
+			);
+			path = "Team Details Screen";
+			sourceTree = "<group>";
+		};
+		E8F7B9C327AD64BD004ECEA2 /* Presenter  */ = {
+			isa = PBXGroup;
+			children = (
+				E8F7B9C527AD6515004ECEA2 /* TeamDetailsPresenter.swift */,
+			);
+			path = "Presenter ";
+			sourceTree = "<group>";
+		};
+		E8F7B9C427AD64DF004ECEA2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E8F7B9C727AD654B004ECEA2 /* TeamDetailsViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E8FFC11A27AC34C5004665BA /* Shared Views */ = {
+			isa = PBXGroup;
+			children = (
+				E876CECC27AB1767008A0D12 /* LeagueCell.swift */,
+			);
+			path = "Shared Views";
+			sourceTree = "<group>";
+		};
+		E8FFC11B27AC36EB004665BA /* Favourite Leagues Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFC11C27AC36FA004665BA /* Presenter */,
+				E8FFC11D27AC3702004665BA /* View */,
+			);
+			path = "Favourite Leagues Screen";
+			sourceTree = "<group>";
+		};
+		E8FFC11C27AC36FA004665BA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFC11E27AC3737004665BA /* FavouriteLeaguesTablePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E8FFC11D27AC3702004665BA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E8FFC12027AC3784004665BA /* FavouriteLeaguesTableViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -433,7 +501,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8BDD10A27A74B73009C76E7 /* CoreDataServices.swift in Sources */,
+				E8F7B9C827AD654B004ECEA2 /* TeamDetailsViewController.swift in Sources */,
 				E8BDD10127A73078009C76E7 /* LeagueModel.swift in Sources */,
+				E8F7B9C627AD6515004ECEA2 /* TeamDetailsPresenter.swift in Sources */,
+				E8FFC12127AC3784004665BA /* FavouriteLeaguesTableViewController.swift in Sources */,
 				E8D30A1D27A5EA6C00E34BAC /* ViewController.swift in Sources */,
 				E8BDD10327A7309A009C76E7 /* Team.swift in Sources */,
 				E85B9D5327A8891E00F01598 /* EventsAPIResponse.swift in Sources */,
@@ -457,6 +528,7 @@
 				E889B3C927A5F892002C0CC9 /* YoussefViewController.swift in Sources */,
 				E876CECD27AB1767008A0D12 /* LeagueCell.swift in Sources */,
 				E863A06B27A81D610089361C /* APIServices.swift in Sources */,
+				E8FFC11F27AC3737004665BA /* FavouriteLeaguesTablePresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

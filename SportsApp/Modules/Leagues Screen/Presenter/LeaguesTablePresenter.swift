@@ -8,8 +8,14 @@
 
 import Foundation
 
-class LeaguesTablePresenter{
-    var leaguesView: LeaguesTableViewController!
+protocol LeaguesPresenter{
+    func attachView(viewController: LeaguesView)
+    func getLeagues()
+    var leagues: [League] {get}
+}
+
+class LeaguesTablePresenter: LeaguesPresenter{
+    var leaguesView: LeaguesView!
     var apiService: APIServices!
     var leagues: [League] = []
     var sportName: String! = "Soccer"
@@ -18,7 +24,7 @@ class LeaguesTablePresenter{
         self.apiService = apiService
     }
     
-    func attachView(viewController: LeaguesTableViewController){
+    func attachView(viewController: LeaguesView){
         self.leaguesView = viewController
     }
     
@@ -27,8 +33,8 @@ class LeaguesTablePresenter{
     }
     
     func leaguesResponseDidArrive(responseLeagues: [League]?){
-        print(responseLeagues![0].badge)
         leagues = responseLeagues!
-        leaguesView.leaguesTable.reloadData()
+        leaguesView.reloadTable()
+        leaguesView.stopIndicator()
     }
 }

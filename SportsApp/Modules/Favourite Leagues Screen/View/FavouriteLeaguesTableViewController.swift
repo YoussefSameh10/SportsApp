@@ -1,61 +1,55 @@
 //
-//  LeaguesTableViewController.swift
+//  FavouriteLeaguesTableViewController.swift
 //  SportsApp
 //
-//  Created by Youssef on 2/2/22.
+//  Created by Youssef on 2/3/22.
 //  Copyright © 2022 Youssef. All rights reserved.
 //
 
 import UIKit
-import Kingfisher
 
 private let cellReuseIdentifier = "Cell"
-
-protocol LeaguesView{
+    
+protocol FavouriteLeaguesView{
     func stopIndicator()
     func reloadTable()
 }
 
-class LeaguesTableViewController: UITableViewController {
+class FavouriteLeaguesTableViewController: UITableViewController, FavouriteLeaguesView {
 
-    @IBOutlet var leaguesTable: UITableView!
-    
     let indicator = UIActivityIndicatorView(style: .medium)
-    var leaguesPresenter: LeaguesTablePresenter!
+    var favouriteLeaguesPresenter: FavouriteLeaguesPresenter!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Leagues"
         
         startIndicator()
-        leaguesPresenter.attachView(viewController: self)
-        leaguesPresenter.getLeagues()
-    
+        //REMEMBER TO REMOVE WHEN LINKING
+        favouriteLeaguesPresenter = FavouriteLeaguesTablePresenter()
+        
+        favouriteLeaguesPresenter.attachView(viewController: self)
+        favouriteLeaguesPresenter.getLeagues()
     }
 
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return leaguesPresenter.leagues.count
+        return favouriteLeaguesPresenter.leagues.count
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! LeagueCell
-
-        // Configure the cell...
-        cell.badge.kf.setImage(with: URL(string: leaguesPresenter.leagues[indexPath.row].badge))
-        cell.name.text = leaguesPresenter.leagues[indexPath.row].name
-        cell.url = leaguesPresenter.leagues[indexPath.row].youtubeLink
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! LeagueCell
         
-        if(cell.url == ""){
-            cell.youtubeButton.isEnabled = false
-        }
+        // Configure the cell...
+        cell.badge.kf.setImage(with: URL(string: favouriteLeaguesPresenter.leagues[indexPath.row].badge!))
+        cell.name.text = favouriteLeaguesPresenter.leagues[indexPath.row].name
         return cell
     }
     
@@ -70,9 +64,9 @@ class LeaguesTableViewController: UITableViewController {
     }
 }
 
-extension LeaguesTableViewController: LeaguesView{
+extension FavouriteLeaguesTableViewController: LeaguesView{
     func reloadTable(){
-        leaguesTable.reloadData()
+        self.tableView.reloadData()
     }
     func stopIndicator() {
         indicator.stopAnimating()
