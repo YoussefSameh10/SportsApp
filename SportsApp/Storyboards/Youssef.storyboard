@@ -29,7 +29,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="LZj-u9-Cy8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="162" id="9I6-Yj-fZ3" customClass="LeagueCell" customModule="SportsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="162"/>
@@ -176,7 +176,7 @@
                 <viewControllerPlaceholder storyboardName="Amr" referencedIdentifier="Amr" id="DZw-td-Te2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VpK-Mq-WHn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="-255"/>
+            <point key="canvasLocation" x="2459" y="-334"/>
         </scene>
         <!--Leagues Table View Controller-->
         <scene sceneID="eSP-Ri-YYd">

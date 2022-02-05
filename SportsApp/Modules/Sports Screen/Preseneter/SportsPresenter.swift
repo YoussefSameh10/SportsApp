@@ -8,9 +8,9 @@
 
 import Foundation
 protocol SportsPresenterProtocol{
+    var sports : [Sport] {get}
     func attachView(view: SportsView)
     func getSports()
-    
 }
 
 class SportsPreseneter : SportsPresenterProtocol{

@@ -8,15 +8,25 @@
 
 import Foundation
 
-class LeagueDetailsPresenter {
+protocol LeaguePresenter{
+    var events: [Event] {get}
+    var teams: [Team] {get}
+    var league: League! {get set}
+    func attachView(view: LeagueDetailsView)
+    func getEvents ()
+    func getTeams()
+    func handleFavouritesButton()
+    func isFavourite()
+}
+
+class LeagueDetailsPresenter: LeaguePresenter {
     
     // MARK: - Properties
     var LeagueDetailsView : LeagueDetailsView!
     var apiServices : APIServices!
     var events : [Event] = []
-    var leagueID : String! = "4905"
     var teams : [Team] = []
-    var leagueName : String! = "Albanian Superliga"
+    var league: League!
     
     // MARK: - Init
     init(apiServices : APIServices){
@@ -30,7 +40,7 @@ class LeagueDetailsPresenter {
     
     // MARK: - Events Methods
     func getEvents (){
-        apiServices.getEventsByLeague(leagueID: leagueID, responseDidArrive: eventsResponseDidArrive)
+        apiServices.getEventsByLeague(leagueID: league.id, responseDidArrive: eventsResponseDidArrive)
     }
     func eventsResponseDidArrive(events: [Event]?){
         //self.events = (Events?.filter({ $0.awayScore == nil }))!
@@ -46,7 +56,7 @@ class LeagueDetailsPresenter {
     }
     // MARK: - Teams Methods
     func getTeams(){
-        apiServices.getTeamsByLeague(leagueName: leagueName, responseDidArrive: teamsResponseDidArrive)
+        apiServices.getTeamsByLeague(leagueName: league.name, responseDidArrive: teamsResponseDidArrive)
     }
     func teamsResponseDidArrive(teams : [Team]?){
         self.teams = teams!
@@ -54,6 +64,30 @@ class LeagueDetailsPresenter {
         DispatchQueue.main.async{
             self.LeagueDetailsView.hideIndicator()
             self.LeagueDetailsView.renderingData()
+        }
+    }
+    
+    // MARK: - Favourites Methods
+    func handleFavouritesButton() {
+        //CoreDataServices.shared.clearStorage()
+        if CoreDataServices.shared.fetchLeague(id: league.id) == nil {
+            CoreDataServices.shared.insertLeagues(league: league)
+            LeagueDetailsView.setFavouritesButton(imageName: "star.fill")
+            
+        }
+        else{
+            CoreDataServices.shared.deleteLeague(id: league.id)
+            LeagueDetailsView.setFavouritesButton(imageName: "star")
+        }
+        print(CoreDataServices.shared.fetchLeagues().count)
+    }
+    
+    func isFavourite() {
+        if CoreDataServices.shared.fetchLeague(id: league.id) == nil {
+            LeagueDetailsView.setFavouritesButton(imageName: "star")
+        }
+        else{
+            LeagueDetailsView.setFavouritesButton(imageName: "star.fill")
         }
     }
     

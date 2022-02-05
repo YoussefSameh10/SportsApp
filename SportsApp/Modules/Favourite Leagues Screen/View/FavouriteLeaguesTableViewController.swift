@@ -20,16 +20,19 @@ class FavouriteLeaguesTableViewController: UITableViewController, FavouriteLeagu
     let indicator = UIActivityIndicatorView(style: .medium)
     var favouriteLeaguesPresenter: FavouriteLeaguesPresenter!
     
+    override func viewWillAppear(_ animated: Bool) {
+        favouriteLeaguesPresenter.getLeagues()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Leagues"
-        
+        //self.tabBarItem.image = UIImage(named: "favourites.png")
         startIndicator()
         //REMEMBER TO REMOVE WHEN LINKING
         favouriteLeaguesPresenter = FavouriteLeaguesTablePresenter()
         
         favouriteLeaguesPresenter.attachView(viewController: self)
-        favouriteLeaguesPresenter.getLeagues()
+        
     }
 
     // MARK: - Table view data source
@@ -51,6 +54,18 @@ class FavouriteLeaguesTableViewController: UITableViewController, FavouriteLeagu
         cell.badge.kf.setImage(with: URL(string: favouriteLeaguesPresenter.leagues[indexPath.row].badge!))
         cell.name.text = favouriteLeaguesPresenter.leagues[indexPath.row].name
         return cell
+    }
+    
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let storyboard = UIStoryboard(name: "Amr", bundle: nil)
+        let leagueDetailsNavController = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsNavigationController") as! UINavigationController
+        let leagueDetailsVC = leagueDetailsNavController.viewControllers.first as! LeagueDetailsViewController
+        leagueDetailsVC.leagueDetailsPresenter = LeagueDetailsPresenter(apiServices: APIServices())
+        leagueDetailsVC.leagueDetailsPresenter.league = favouriteLeaguesPresenter.leagues[indexPath.row]
+        self.present(leagueDetailsNavController, animated: true, completion: nil)
+        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

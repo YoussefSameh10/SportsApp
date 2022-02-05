@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3VB-yh-DzF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3VB-yh-DzF">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +15,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="Slx-eL-3nx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9J7-Wh-fyJ">
                             <size key="itemSize" width="202" height="225"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -39,9 +37,9 @@
                                         <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="sportName" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERD-dp-AmX">
                                             <rect key="frame" x="8" y="178" width="194" height="39"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" systemColor="labelColor"/>
+                                            <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                            <color key="textColor" systemColor="systemGray6Color"/>
+                                            <color key="textColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -64,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="419" y="-656"/>
         </scene>
-        <!--League Details View Controller-->
+        <!--League Details-->
         <scene sceneID="SX3-5V-8oQ">
             <objects>
-                <viewController storyboardIdentifier="LeagueDetailsViewController" id="vbL-jn-gN0" customClass="LeagueDetailsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LeagueDetailsViewController" title="League Details" modalPresentationStyle="fullScreen" id="vbL-jn-gN0" customClass="LeagueDetailsViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JI5-Ro-bCd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -75,7 +73,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dwk-Yd-nxM">
                                 <rect key="frame" x="0.0" y="81" width="414" height="277"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4pV-2z-eia">
                                     <size key="itemSize" width="414" height="270"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -138,7 +136,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pnf-jf-nQP">
                                 <rect key="frame" x="0.0" y="366" width="414" height="272"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AcN-jI-xXh">
                                     <size key="itemSize" width="414" height="407"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -201,7 +199,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="foa-XT-ywD">
                                 <rect key="frame" x="0.0" y="646" width="414" height="184"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t8P-R9-huj">
                                     <size key="itemSize" width="158" height="158"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -229,19 +227,40 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0f-ie-r6V">
+                                <rect key="frame" x="33" y="41" width="20" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="arrow.left" catalog="system"/>
+                                <connections>
+                                    <action selector="goBack:" destination="vbL-jn-gN0" eventType="touchUpInside" id="ioY-Ei-tJv"/>
+                                </connections>
+                            </button>
                         </subviews>
+                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="YkB-3d-ieq"/>
-                        <color key="backgroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mYF-UO-8Ro">
+                        <barButtonItem key="leftBarButtonItem" title="    " image="arrow.left" catalog="system" id="Zq9-Zt-Nw8">
+                            <connections>
+                                <action selector="goBack:" destination="vbL-jn-gN0" id="bur-ob-OcZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="   " id="zO7-qI-6tE">
+                            <connections>
+                                <action selector="addToFavourites:" destination="vbL-jn-gN0" id="fYE-IY-B98"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="UpComingEventsCollectionVC" destination="dwk-Yd-nxM" id="p9o-Bp-T8B"/>
+                        <outlet property="favouriteButton" destination="zO7-qI-6tE" id="L21-IH-4bb"/>
                         <outlet property="latestResultCollectionVC" destination="Pnf-jf-nQP" id="3Ud-3b-xKG"/>
                         <outlet property="teamsCollectionVC" destination="foa-XT-ywD" id="ES3-NY-ckT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xZ-PE-6Ie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1218.840579710145" y="-656.25"/>
+            <point key="canvasLocation" x="2128.985507246377" y="-656.25"/>
         </scene>
         <!--Item-->
         <scene sceneID="EUk-yT-6Wp">
@@ -251,7 +270,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7S-DJ-RSS">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7S-DJ-RSS">
                                 <rect key="frame" x="190" y="433" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
@@ -260,14 +279,24 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="xWY-Jb-fJM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="EbE-Ct-3Fj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIN-PZ-gK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-372" y="-1574"/>
+        </scene>
+        <!--FavouriteLeaguesTableViewController-->
+        <scene sceneID="lAX-LD-Q4O">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Youssef" referencedIdentifier="FavouriteLeaguesTableViewController" id="vxP-1U-EcT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="g4h-jQ-82x"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h85-Vp-a1V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1642" y="-1242"/>
         </scene>
         <!--LeaguesTableViewController-->
         <scene sceneID="x40-pR-cLJ">
@@ -290,6 +319,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="pLJ-0z-9pr" kind="relationship" relationship="viewControllers" id="MHk-Ca-UTR"/>
+                        <segue destination="vxP-1U-EcT" kind="relationship" relationship="viewControllers" id="Ch3-oG-lU9"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nru-5k-8VG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -300,7 +330,7 @@
         <scene sceneID="OPc-5c-5Wk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pLJ-0z-9pr" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="pencil" catalog="system" id="JQ5-nw-zGd"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="sportscourt" catalog="system" id="JQ5-nw-zGd"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6Pc-9r-pYU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -315,21 +345,28 @@
             </objects>
             <point key="canvasLocation" x="-372" y="-656"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eJs-T6-fv4">
+            <objects>
+                <navigationController storyboardIdentifier="LeagueDetailsNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="4m9-Oj-ljg" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5cT-qd-2cd">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vbL-jn-gN0" kind="relationship" relationship="rootViewController" id="eit-I4-HaZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CZR-ch-QHe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1218.840579710145" y="-656.25"/>
+        </scene>
     </scenes>
     <resources>
-        <image name="pencil" catalog="system" width="128" height="113"/>
+        <image name="arrow.left" catalog="system" width="128" height="98"/>
         <image name="sport" width="492" height="466"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="secondarySystemGroupedBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGray6Color">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="sportscourt" catalog="system" width="128" height="83"/>
     </resources>
 </document>

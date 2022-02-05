@@ -9,7 +9,7 @@
 import Foundation
 
 protocol TeamPresenter{
-    var team: Team! {get}
+    var team: Team! {get set}
     func attachView(teamDetailsView: TeamDetailsView)
 }
 class TeamDetailsPresenter: TeamPresenter{

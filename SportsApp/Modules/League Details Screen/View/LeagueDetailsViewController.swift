@@ -12,6 +12,7 @@ import Kingfisher
 protocol LeagueDetailsView : AnyObject{
     func hideIndicator ()
     func renderingData ()
+    func setFavouritesButton(imageName: String)
 }
 
 class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,LeagueDetailsView{
@@ -19,7 +20,7 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
     // MARK: - Properties
    
     let indicator = UIActivityIndicatorView(style: .large)
-    var leagueDetailsPresenter : LeagueDetailsPresenter!
+    var leagueDetailsPresenter : LeaguePresenter!
     var events : [Event]?
 
     
@@ -29,11 +30,13 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
     @IBOutlet weak var UpComingEventsCollectionVC: UICollectionView!
     @IBOutlet weak var latestResultCollectionVC: UICollectionView!
     @IBOutlet weak var teamsCollectionVC: UICollectionView!
-    
+   
+    @IBOutlet weak var favouriteButton: UIBarButtonItem!
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //self.modalPresentationStyle = .fullScreen
         showIndicator()
         
         UpComingEventsCollectionVCSetUp()
@@ -42,6 +45,8 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         
         presenterInitialization()
         
+        leagueDetailsPresenter.isFavourite()
+        self.title = leagueDetailsPresenter.league.name
         
         //upComingEvents = leagueDetailsPresenter.events.filter { $0.awayScore == nil}
         
@@ -82,6 +87,10 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         self.UpComingEventsCollectionVC.reloadData()
         self.latestResultCollectionVC.reloadData()
         self.teamsCollectionVC.reloadData()
+    }
+    
+    func setFavouritesButton(imageName: String){
+        favouriteButton.setBackgroundImage(UIImage(systemName: imageName), for: .normal, barMetrics: .default)
     }
     
     
@@ -156,9 +165,15 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         }
         
     }
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        <#code#>
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == self.teamsCollectionVC{
+            let storyboard = UIStoryboard(name: "Youssef", bundle: nil)
+            let teamVC = storyboard.instantiateViewController(identifier: "TeamDetailsViewController") as! TeamDetailsViewController
+            teamVC.teamPresenter = TeamDetailsPresenter()
+            teamVC.teamPresenter.team = leagueDetailsPresenter.teams[indexPath.row]
+            self.navigationController?.pushViewController(teamVC, animated: true)
+        }
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 200, height:500)
@@ -168,5 +183,12 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
 
     // MARK: - Actions
     
-
+    @IBAction func addToFavourites(_ sender: Any) {
+        leagueDetailsPresenter.handleFavouritesButton()
+    }
+    
+    
+    @IBAction func goBack(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
