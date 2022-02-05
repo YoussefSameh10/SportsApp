@@ -9,12 +9,13 @@
 import UIKit
 
 class LeagueCell: UITableViewCell {
+    
+    var url: String! = "www.youtube.com/user/FederacioAndFutbol"
+    var showAlert : (() -> ()) = {}
 
     @IBOutlet weak var badge: UIImageView!
     @IBOutlet weak var name: UILabel!
     @IBOutlet weak var youtubeButton: UIButton!
-    
-    var url: String! = "www.youtube.com/user/FederacioAndFutbol"
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +34,7 @@ class LeagueCell: UITableViewCell {
     
     @IBAction func gotoYoutube(_ sender: UIButton) {
         if(url == ""){
-            
+            showAlert()
         }
         else if UIApplication.shared.canOpenURL(NSURL(string: url)! as URL) {
             UIApplication.shared.open(NSURL(string: url)! as URL)
