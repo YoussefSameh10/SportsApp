@@ -42,11 +42,22 @@
 		E8D30A3127A5ED7000E34BAC /* Amr.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D30A3027A5ED7000E34BAC /* Amr.storyboard */; };
 		E8D30A3327A5ED9000E34BAC /* Youssef.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8D30A3227A5ED9000E34BAC /* Youssef.storyboard */; };
 		E8E95F3B27AB2B59001ADBC0 /* LeaguesTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E95F3A27AB2B59001ADBC0 /* LeaguesTablePresenter.swift */; };
+		E8F11B6A27AF0FD300E9A279 /* SportsAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F11B6927AF0FD300E9A279 /* SportsAppTests.swift */; };
 		E8F7B9C627AD6515004ECEA2 /* TeamDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7B9C527AD6515004ECEA2 /* TeamDetailsPresenter.swift */; };
 		E8F7B9C827AD654B004ECEA2 /* TeamDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F7B9C727AD654B004ECEA2 /* TeamDetailsViewController.swift */; };
 		E8FFC11F27AC3737004665BA /* FavouriteLeaguesTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFC11E27AC3737004665BA /* FavouriteLeaguesTablePresenter.swift */; };
 		E8FFC12127AC3784004665BA /* FavouriteLeaguesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8FFC12027AC3784004665BA /* FavouriteLeaguesTableViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E8F11B6C27AF0FD300E9A279 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E8D30A0D27A5EA6C00E34BAC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E8D30A1427A5EA6C00E34BAC;
+			remoteInfo = SportsApp;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		31F0F92AFA03EB053F1A9E40 /* Pods-SportsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportsApp.release.xcconfig"; path = "Target Support Files/Pods-SportsApp/Pods-SportsApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -88,6 +99,9 @@
 		E8D30A3027A5ED7000E34BAC /* Amr.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Amr.storyboard; sourceTree = "<group>"; };
 		E8D30A3227A5ED9000E34BAC /* Youssef.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Youssef.storyboard; sourceTree = "<group>"; };
 		E8E95F3A27AB2B59001ADBC0 /* LeaguesTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaguesTablePresenter.swift; sourceTree = "<group>"; };
+		E8F11B6727AF0FD300E9A279 /* SportsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SportsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8F11B6927AF0FD300E9A279 /* SportsAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportsAppTests.swift; sourceTree = "<group>"; };
+		E8F11B6B27AF0FD300E9A279 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8F7B9C527AD6515004ECEA2 /* TeamDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsPresenter.swift; sourceTree = "<group>"; };
 		E8F7B9C727AD654B004ECEA2 /* TeamDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamDetailsViewController.swift; sourceTree = "<group>"; };
 		E8FFC11E27AC3737004665BA /* FavouriteLeaguesTablePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteLeaguesTablePresenter.swift; sourceTree = "<group>"; };
@@ -100,6 +114,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B7A0506AF42D126FA2D4FF1 /* Pods_SportsApp.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8F11B6427AF0FD200E9A279 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -179,12 +200,9 @@
 		E83E80CC27AACEB8009784C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-
 				E8F7B9C227AD64A6004ECEA2 /* Team Details Screen */,
 				E8FFC11B27AC36EB004665BA /* Favourite Leagues Screen */,
-
 				8AC78AE127AC2AF300FCE66E /* League Details Screen */,
-
 				E876CEC927AB1568008A0D12 /* Leagues Screen */,
 				8ACFF59927AAEBD900BA55D4 /* Sports Screen */,
 				E8FFC11A27AC34C5004665BA /* Shared Views */,
@@ -308,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				E8D30A1727A5EA6C00E34BAC /* SportsApp */,
+				E8F11B6827AF0FD300E9A279 /* SportsAppTests */,
 				E8D30A1627A5EA6C00E34BAC /* Products */,
 				8F3AAE539A5120E1B6251733 /* Pods */,
 				88C535AEBDB32270A58DD17A /* Frameworks */,
@@ -318,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				E8D30A1527A5EA6C00E34BAC /* SportsApp.app */,
+				E8F11B6727AF0FD300E9A279 /* SportsAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -362,6 +382,15 @@
 				E8E95F3A27AB2B59001ADBC0 /* LeaguesTablePresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		E8F11B6827AF0FD300E9A279 /* SportsAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				E8F11B6927AF0FD300E9A279 /* SportsAppTests.swift */,
+				E8F11B6B27AF0FD300E9A279 /* Info.plist */,
+			);
+			path = SportsAppTests;
 			sourceTree = "<group>";
 		};
 		E8F7B9C227AD64A6004ECEA2 /* Team Details Screen */ = {
@@ -444,6 +473,24 @@
 			productReference = E8D30A1527A5EA6C00E34BAC /* SportsApp.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E8F11B6627AF0FD200E9A279 /* SportsAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8F11B7027AF0FD300E9A279 /* Build configuration list for PBXNativeTarget "SportsAppTests" */;
+			buildPhases = (
+				E8F11B6327AF0FD200E9A279 /* Sources */,
+				E8F11B6427AF0FD200E9A279 /* Frameworks */,
+				E8F11B6527AF0FD200E9A279 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E8F11B6D27AF0FD300E9A279 /* PBXTargetDependency */,
+			);
+			name = SportsAppTests;
+			productName = SportsAppTests;
+			productReference = E8F11B6727AF0FD300E9A279 /* SportsAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -456,6 +503,10 @@
 				TargetAttributes = {
 					E8D30A1427A5EA6C00E34BAC = {
 						CreatedOnToolsVersion = 11.5;
+					};
+					E8F11B6627AF0FD200E9A279 = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = E8D30A1427A5EA6C00E34BAC;
 					};
 				};
 			};
@@ -473,6 +524,7 @@
 			projectRoot = "";
 			targets = (
 				E8D30A1427A5EA6C00E34BAC /* SportsApp */,
+				E8F11B6627AF0FD200E9A279 /* SportsAppTests */,
 			);
 		};
 /* End PBXProject section */
@@ -487,6 +539,13 @@
 				E8D30A3327A5ED9000E34BAC /* Youssef.storyboard in Resources */,
 				E8D30A2527A5EA6E00E34BAC /* Assets.xcassets in Resources */,
 				E8D30A2027A5EA6C00E34BAC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E8F11B6527AF0FD200E9A279 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -575,7 +634,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E8F11B6327AF0FD200E9A279 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8F11B6A27AF0FD300E9A279 /* SportsAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E8F11B6D27AF0FD300E9A279 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E8D30A1427A5EA6C00E34BAC /* SportsApp */;
+			targetProxy = E8F11B6C27AF0FD300E9A279 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E8D30A1E27A5EA6C00E34BAC /* Main.storyboard */ = {
@@ -747,6 +822,44 @@
 			};
 			name = Release;
 		};
+		E8F11B6E27AF0FD300E9A279 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SportsAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS-Swift.SportsAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SportsApp.app/SportsApp";
+			};
+			name = Debug;
+		};
+		E8F11B6F27AF0FD300E9A279 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SportsAppTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "iOS-Swift.SportsAppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SportsApp.app/SportsApp";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -764,6 +877,15 @@
 			buildConfigurations = (
 				E8D30A2D27A5EA6E00E34BAC /* Debug */,
 				E8D30A2E27A5EA6E00E34BAC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8F11B7027AF0FD300E9A279 /* Build configuration list for PBXNativeTarget "SportsAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8F11B6E27AF0FD300E9A279 /* Debug */,
+				E8F11B6F27AF0FD300E9A279 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

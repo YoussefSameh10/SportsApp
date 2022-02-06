@@ -10,6 +10,7 @@ import Foundation
 
 protocol LeaguePresenter{
     var events: [Event] {get}
+    var filteredEvents: [Event] {get set}
     var teams: [Team] {get}
     var league: League! {get set}
     func attachView(view: LeagueDetailsView)
@@ -25,6 +26,7 @@ class LeagueDetailsPresenter: LeaguePresenter {
     var LeagueDetailsView : LeagueDetailsView!
     var apiServices : APIServices!
     var events : [Event] = []
+    var filteredEvents: [Event] = []
     var teams : [Team] = []
     var league: League!
     
@@ -44,22 +46,22 @@ class LeagueDetailsPresenter: LeaguePresenter {
     }
     func eventsResponseDidArrive(events: [Event]?){
         //self.events = (Events?.filter({ $0.awayScore == nil }))!
-        self.events = events!
+        self.events = events ?? []
         DispatchQueue.main.async {
             self.LeagueDetailsView.hideIndicator()
             self.LeagueDetailsView.renderingData()
             
         }
-        print("here presenter Events")
-        print(self.events.count)
-        print(self.events[0].name!)
+//        print("here presenter Events")
+//        print(self.events.count)
+//        print(self.events[0].name!)
     }
     // MARK: - Teams Methods
     func getTeams(){
         apiServices.getTeamsByLeague(leagueName: league.name, responseDidArrive: teamsResponseDidArrive)
     }
     func teamsResponseDidArrive(teams : [Team]?){
-        self.teams = teams!
+        self.teams = teams ?? []
         print("presenter here number of teams = \(self.teams.count)")
         DispatchQueue.main.async{
             self.LeagueDetailsView.hideIndicator()

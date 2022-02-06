@@ -51,7 +51,13 @@ class FavouriteLeaguesTableViewController: UITableViewController, FavouriteLeagu
         let cell = self.tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! LeagueCell
         
         // Configure the cell...
-        cell.badge.kf.setImage(with: URL(string: favouriteLeaguesPresenter.leagues[indexPath.row].badge!))
+        if favouriteLeaguesPresenter.leagues[indexPath.row].badge != nil {
+            cell.badge.kf.setImage(with: URL(string: favouriteLeaguesPresenter.leagues[indexPath.row].badge!), placeholder: UIImage(named: "brokenImage.png"))
+        }
+        else{
+            cell.badge.image = UIImage(named: "brokenImage.png")
+        }
+        
         cell.name.text = favouriteLeaguesPresenter.leagues[indexPath.row].name
         return cell
     }
