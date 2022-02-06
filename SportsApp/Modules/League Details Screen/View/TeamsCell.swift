@@ -12,4 +12,5 @@ class TeamsCell: UICollectionViewCell {
     
     
     @IBOutlet weak var teamImage: UIImageView!
+    @IBOutlet weak var noTeamsLabel: UILabel!
 }

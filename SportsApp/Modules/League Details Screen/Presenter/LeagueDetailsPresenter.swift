@@ -10,6 +10,7 @@ import Foundation
 
 protocol LeaguePresenter{
     var events: [Event] {get}
+    var filteredEvents: [Event] {get set}
     var teams: [Team] {get}
     var league: League! {get set}
     func attachView(view: LeagueDetailsView)
@@ -25,6 +26,7 @@ class LeagueDetailsPresenter: LeaguePresenter {
     var LeagueDetailsView : LeagueDetailsView!
     var apiServices : APIServices!
     var events : [Event] = []
+    var filteredEvents: [Event] = []
     var teams : [Team] = []
     var league: League!
     

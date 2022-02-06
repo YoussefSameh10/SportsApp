@@ -15,6 +15,8 @@ class eventsCell: UICollectionViewCell {
     @IBOutlet weak var eventResultLabel: UILabel!
     @IBOutlet weak var eventDateLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
+    @IBOutlet weak var teamsNameLabel: UILabel!
+    @IBOutlet weak var noEventsLabel: UILabel!
     
     
 //    @IBOutlet weak var latestResultRoundLabel: UILabel!

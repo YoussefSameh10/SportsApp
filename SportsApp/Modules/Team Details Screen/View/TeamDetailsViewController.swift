@@ -24,14 +24,16 @@ class TeamDetailsViewController: UIViewController, TeamDetailsView {
     
     var teamPresenter: TeamPresenter!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(teamPresenter.team.establishmentYear)
-        print(teamPresenter.team.stadium)
-        
-        //teamPresenter = TeamDetailsPresenter()
         teamPresenter.attachView(teamDetailsView: self)
+        teamLabelsSetUp()
+    }
+    
+    fileprivate func teamLabelsSetUp() {
         if teamPresenter.team.stadiumImage != nil {
             stadiumImage.kf.setImage(with: URL(string: teamPresenter.team.stadiumImage), placeholder: UIImage(named: "stadiumPlaceholder.png"))
         }
@@ -52,12 +54,24 @@ class TeamDetailsViewController: UIViewController, TeamDetailsView {
         else{
             jerseyImage.image = UIImage(named: "brokenImage.png")
         }
-
-        name.text = teamPresenter.team.name
-        establishmentYear.text = teamPresenter.team.establishmentYear
-        stadiumName.text = teamPresenter.team.stadium
         
-        
-        // Do any additional setup after loading the view.
+        if teamPresenter.team.name == "" {
+            name.text = "Name Not Available"
+        }
+        else{
+            name.text = teamPresenter.team.name
+        }
+        if teamPresenter.team.stadium == "" {
+            stadiumName.text = "This team has no stadium"
+        }
+        else{
+            stadiumName.text = teamPresenter.team.stadium
+        }
+        if teamPresenter.team.establishmentYear == "" || teamPresenter.team.establishmentYear == "0" {
+            establishmentYear.text = "Unknown"
+        }
+        else{
+            establishmentYear.text = teamPresenter.team.establishmentYear
+        }
     }
 }

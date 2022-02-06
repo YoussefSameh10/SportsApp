@@ -25,7 +25,7 @@ class LeaguesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Leagues"
+        self.title = "\(leaguesPresenter.sportName!) Leagues"
         
         startIndicator()
         leaguesPresenter.attachView(viewController: self)
