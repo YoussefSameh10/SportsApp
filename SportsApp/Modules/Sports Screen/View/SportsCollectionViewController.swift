@@ -23,9 +23,14 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
     var sportsPresenter : SportsPresenterProtocol!
     
     // MARK: - Life Cycle
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        sportsCellSetUp()
+         
         
         self.title = "Sports"
         showIndicator()
@@ -48,6 +53,14 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
     }
     func renderSportsData (){
         self.collectionView.reloadData()
+    }
+    func sportsCellSetUp() {
+        let itemSize = UIScreen.main.bounds.width/2 - 3
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: itemSize, height: itemSize)
+        layout.minimumInteritemSpacing = 3
+        layout.minimumLineSpacing = 3
+        collectionView.collectionViewLayout = layout
     }
 
     // MARK: UICollectionViewDataSource

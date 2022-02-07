@@ -18,8 +18,6 @@ class SportsCustomCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         layer.cornerRadius = 25
         backgroundColor = .gray
-        sportNameLabel.layer.masksToBounds = true
-        sportNameLabel.layer.cornerRadius = 25
     }
     
     
