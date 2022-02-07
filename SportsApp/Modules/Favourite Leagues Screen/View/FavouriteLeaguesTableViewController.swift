@@ -17,9 +17,12 @@ protocol FavouriteLeaguesView{
 
 class FavouriteLeaguesTableViewController: UITableViewController, FavouriteLeaguesView {
 
+    // MARK: - Properties
     let indicator = UIActivityIndicatorView(style: .medium)
     var favouriteLeaguesPresenter: FavouriteLeaguesPresenter!
     
+    
+    // MARK: - Lifecycle Methods
     override func viewWillAppear(_ animated: Bool) {
         favouriteLeaguesPresenter.getLeagues()
     }

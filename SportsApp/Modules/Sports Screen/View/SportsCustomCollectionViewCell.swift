@@ -15,7 +15,12 @@ class SportsCustomCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var sportImage: UIImageView!
     @IBOutlet weak var sportNameLabel: UILabel!
     
-    
+    override func awakeFromNib() {
+        layer.cornerRadius = 25
+        backgroundColor = .gray
+        sportNameLabel.layer.masksToBounds = true
+        sportNameLabel.layer.cornerRadius = 25
+    }
     
     
 }

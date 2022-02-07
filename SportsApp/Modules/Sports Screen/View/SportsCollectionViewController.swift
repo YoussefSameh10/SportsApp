@@ -49,12 +49,6 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
     func renderSportsData (){
         self.collectionView.reloadData()
     }
-    func sportsCellShape(_ cell: SportsCustomCollectionViewCell) {
-        cell.layer.cornerRadius = 25
-        cell.backgroundColor = .gray
-        cell.sportNameLabel.layer.masksToBounds = true
-        cell.sportNameLabel.layer.cornerRadius = 25
-    }
 
     // MARK: UICollectionViewDataSource
   
@@ -70,7 +64,7 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         cell.sportNameLabel.text = sportsPresenter.sports[indexPath.row].name!
         cell.sportImage.kf.setImage(with : URL(string: sportsPresenter.sports[indexPath.row].logo), placeholder: UIImage(named: "brokenImage.png"))
         
-        sportsCellShape(cell)
+        
         return cell
     }
     
