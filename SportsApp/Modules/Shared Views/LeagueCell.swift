@@ -21,8 +21,10 @@ class LeagueCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        badge.layer.masksToBounds = false
-        badge.layer.cornerRadius = badge.frame.size.width/2
+        //badge.layer.masksToBounds = true
+        badge.layer.borderWidth = 1
+        badge.layer.borderColor = UIColor.gray.cgColor
+        badge.layer.cornerRadius = badge.frame.width/2
         
     }
 
