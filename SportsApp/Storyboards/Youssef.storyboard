@@ -31,56 +31,56 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="162" id="9I6-Yj-fZ3" customClass="LeagueCell" customModule="SportsApp" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="162" id="W3D-xH-0IN" customClass="LeagueCell" customModule="SportsApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9I6-Yj-fZ3" id="0Rw-dE-wu1">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="W3D-xH-0IN" id="FKX-Nv-50P">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="162"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XxB-Qs-XFn">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SOs-Za-ZnK">
                                             <rect key="frame" x="102" y="69" width="230" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a1q-OC-B2c">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Qen-fn-Jb0">
                                             <rect key="frame" x="16" y="46" width="70" height="70"/>
+                                            <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="70" id="Wdg-az-rkz"/>
-                                                <constraint firstAttribute="height" constant="70" id="laR-tf-vB1"/>
+                                                <constraint firstAttribute="width" constant="70" id="AS6-kk-8Le"/>
+                                                <constraint firstAttribute="height" constant="70" id="Da8-Fw-Wrd"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Xb-AM-giG">
+                                        <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnr-y1-tZI">
                                             <rect key="frame" x="348" y="66" width="50" height="30"/>
-                                            <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="VFm-nf-cda"/>
-                                                <constraint firstAttribute="width" constant="50" id="d8d-Zd-Vjf"/>
+                                                <constraint firstAttribute="height" constant="30" id="cX8-XK-C6R"/>
+                                                <constraint firstAttribute="width" constant="50" id="pc7-RO-YCM"/>
                                             </constraints>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" backgroundImage="youtube.png">
+                                            <state key="normal" image="youtube.svg">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
-                                                <action selector="gotoYoutube:" destination="9I6-Yj-fZ3" eventType="touchUpInside" id="pkU-no-dsi"/>
+                                                <action selector="gotoYoutube:" destination="W3D-xH-0IN" eventType="touchUpInside" id="bYy-83-7aY"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="a1q-OC-B2c" firstAttribute="centerY" secondItem="0Rw-dE-wu1" secondAttribute="centerY" id="0vV-po-MIp"/>
-                                        <constraint firstItem="1Xb-AM-giG" firstAttribute="centerY" secondItem="0Rw-dE-wu1" secondAttribute="centerY" id="3lg-AC-Tpj"/>
-                                        <constraint firstItem="XxB-Qs-XFn" firstAttribute="centerY" secondItem="a1q-OC-B2c" secondAttribute="centerY" id="QbU-ad-uu7"/>
-                                        <constraint firstAttribute="trailing" secondItem="1Xb-AM-giG" secondAttribute="trailing" constant="16" id="ax2-1n-vLa"/>
-                                        <constraint firstItem="XxB-Qs-XFn" firstAttribute="leading" secondItem="a1q-OC-B2c" secondAttribute="trailing" constant="16" id="fy7-hD-X1G"/>
-                                        <constraint firstItem="a1q-OC-B2c" firstAttribute="leading" secondItem="0Rw-dE-wu1" secondAttribute="leading" constant="16" id="jeJ-Dw-kej"/>
-                                        <constraint firstItem="1Xb-AM-giG" firstAttribute="leading" secondItem="XxB-Qs-XFn" secondAttribute="trailing" constant="16" id="sWD-Sf-6XV"/>
+                                        <constraint firstItem="xnr-y1-tZI" firstAttribute="leading" secondItem="SOs-Za-ZnK" secondAttribute="trailing" constant="16" id="9Jv-I4-qQO"/>
+                                        <constraint firstItem="SOs-Za-ZnK" firstAttribute="centerY" secondItem="Qen-fn-Jb0" secondAttribute="centerY" id="NDg-0Z-fIC"/>
+                                        <constraint firstItem="Qen-fn-Jb0" firstAttribute="centerY" secondItem="FKX-Nv-50P" secondAttribute="centerY" id="OSh-J0-ePo"/>
+                                        <constraint firstItem="SOs-Za-ZnK" firstAttribute="leading" secondItem="Qen-fn-Jb0" secondAttribute="trailing" constant="16" id="Y81-7g-V7C"/>
+                                        <constraint firstItem="Qen-fn-Jb0" firstAttribute="leading" secondItem="FKX-Nv-50P" secondAttribute="leading" constant="16" id="bRj-2A-IwV"/>
+                                        <constraint firstAttribute="trailing" secondItem="xnr-y1-tZI" secondAttribute="trailing" constant="16" id="nvy-m9-RbH"/>
+                                        <constraint firstItem="xnr-y1-tZI" firstAttribute="centerY" secondItem="FKX-Nv-50P" secondAttribute="centerY" id="yzE-I9-oV8"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="badge" destination="a1q-OC-B2c" id="Ip1-FV-P76"/>
-                                    <outlet property="name" destination="XxB-Qs-XFn" id="2tg-Ta-zfN"/>
-                                    <outlet property="youtubeButton" destination="1Xb-AM-giG" id="idA-Xh-8fE"/>
+                                    <outlet property="badge" destination="Qen-fn-Jb0" id="bbi-ic-r0H"/>
+                                    <outlet property="name" destination="SOs-Za-ZnK" id="bg3-zm-rxI"/>
+                                    <outlet property="youtubeButton" destination="xnr-y1-tZI" id="tVF-CS-T0J"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -102,7 +102,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W1P-W4-DQr">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W1P-W4-DQr">
                                 <rect key="frame" x="0.0" y="44" width="414" height="224"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HiT-26-9uK">
@@ -222,6 +222,7 @@
                                         </label>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AS9-sE-HSc">
                                             <rect key="frame" x="16" y="46" width="70" height="70"/>
+                                            <color key="backgroundColor" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="70" id="1Oo-EU-4ZJ"/>
                                                 <constraint firstAttribute="height" constant="70" id="LAW-pW-asz"/>
@@ -229,13 +230,12 @@
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfE-Gq-47L">
                                             <rect key="frame" x="348" y="66" width="50" height="30"/>
-                                            <color key="backgroundColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="30" id="iww-bb-94E"/>
                                                 <constraint firstAttribute="width" constant="50" id="x4F-SY-p6n"/>
                                             </constraints>
                                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <state key="normal" image="youtube">
+                                            <state key="normal" image="youtube.svg">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
                                             <connections>
@@ -275,7 +275,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="youtube" width="472" height="330"/>
-        <image name="youtube.png" width="320" height="240"/>
+        <image name="youtube.svg" width="2560" height="1771"/>
     </resources>
 </document>
