@@ -18,6 +18,11 @@ class eventsCell: UICollectionViewCell {
     @IBOutlet weak var teamsNameLabel: UILabel!
     @IBOutlet weak var noEventsLabel: UILabel!
     
+    override func awakeFromNib() {
+        layer.cornerRadius = 70
+        eventImage.isHidden = true
+       
+    }
     
 //    @IBOutlet weak var latestResultRoundLabel: UILabel!
 //    @IBOutlet weak var latestResultImage: UIImageView!

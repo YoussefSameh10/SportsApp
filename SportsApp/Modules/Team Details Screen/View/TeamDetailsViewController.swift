@@ -35,10 +35,10 @@ class TeamDetailsViewController: UIViewController, TeamDetailsView {
     
     fileprivate func teamLabelsSetUp() {
         if teamPresenter.team.stadiumImage != nil {
-            stadiumImage.kf.setImage(with: URL(string: teamPresenter.team.stadiumImage), placeholder: UIImage(named: "stadiumPlaceholder.png"))
+            stadiumImage.kf.setImage(with: URL(string: teamPresenter.team.stadiumImage), placeholder: UIImage(named: "stadiumPlaceholder2.svg"))
         }
         else{
-            stadiumImage.image = UIImage(named: "stadiumPlaceholder.png")
+            stadiumImage.image = UIImage(named: "stadiumPlaceholder2.svg")
         }
         
         if teamPresenter.team.teamBadge != nil {
@@ -61,13 +61,14 @@ class TeamDetailsViewController: UIViewController, TeamDetailsView {
         else{
             name.text = teamPresenter.team.name
         }
-        if teamPresenter.team.stadium == "" {
+        if teamPresenter.team.stadium == "" || teamPresenter.team.stadium == nil || teamPresenter.team.stadium == " "{
             stadiumName.text = "This team has no stadium"
         }
         else{
             stadiumName.text = teamPresenter.team.stadium
         }
-        if teamPresenter.team.establishmentYear == "" || teamPresenter.team.establishmentYear == "0" {
+        if teamPresenter.team.establishmentYear == "" || teamPresenter.team.establishmentYear == "0" || teamPresenter.team.establishmentYear == nil ||
+            teamPresenter.team.establishmentYear == " "{
             establishmentYear.text = "Unknown"
         }
         else{

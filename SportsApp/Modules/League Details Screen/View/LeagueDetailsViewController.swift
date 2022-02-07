@@ -36,6 +36,7 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         super.viewDidLoad()
         
         //self.modalPresentationStyle = .fullScreen
+    
         showIndicator()
         
         UpComingEventsCollectionVCSetUp()
@@ -57,17 +58,41 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
     func UpComingEventsCollectionVCSetUp(){
         UpComingEventsCollectionVC.delegate = self
         UpComingEventsCollectionVC.dataSource = self
-        (UpComingEventsCollectionVC.collectionViewLayout as! UICollectionViewFlowLayout).scrollDirection = .horizontal
+        //(UpComingEventsCollectionVC.collectionViewLayout as! UICollectionViewFlowLayout).scrollDirection = .horizontal
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let itemWidth = self.UpComingEventsCollectionVC.bounds.width/1.3 - 3
+        let itemHeight = self.UpComingEventsCollectionVC.bounds.height
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.minimumInteritemSpacing = 3
+        layout.minimumLineSpacing = 3
+        self.UpComingEventsCollectionVC.collectionViewLayout = layout
+        
+
     }
     func latestResultCollectionVCSetUp(){
         latestResultCollectionVC.delegate = self
         latestResultCollectionVC.dataSource = self
+        let layout = UICollectionViewFlowLayout()
+        let itemWidth = self.UpComingEventsCollectionVC.bounds.width
+        let itemHeight = self.UpComingEventsCollectionVC.bounds.height / 1.3 - 3
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.minimumInteritemSpacing = 3
+        layout.minimumLineSpacing = 3
+        self.latestResultCollectionVC.collectionViewLayout = layout
         
     }
     func teamsCollectionVCSetUp(){
         teamsCollectionVC.delegate = self
         teamsCollectionVC.dataSource = self
-        (teamsCollectionVC.collectionViewLayout as! UICollectionViewFlowLayout).scrollDirection = .horizontal
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let itemWidth = self.UpComingEventsCollectionVC.bounds.width / 3
+        let itemHeight = self.UpComingEventsCollectionVC.bounds.height
+        layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        layout.minimumInteritemSpacing = 3
+        layout.minimumLineSpacing = 3
+        self.teamsCollectionVC.collectionViewLayout = layout
         
     }
     func presenterInitialization(){
@@ -100,7 +125,7 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         cell.noEventsLabel.isHidden = !noEvents
         cell.eventDateLabel.isHidden = noEvents
         cell.eventRoundLabel.isHidden = noEvents
-        cell.eventImage.isHidden = noEvents
+        //cell.eventImage.isHidden = noEvents
         cell.eventTimeLabel.isHidden = noEvents
         cell.eventResultLabel.isHidden = noEvents
         cell.teamsNameLabel.isHidden = noEvents
@@ -114,7 +139,6 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         
         showingAndHidingEventsCellsLabels(cell, noEvents: false)
         
-        
         let homeScore = leagueDetailsPresenter.filteredEvents[indexPath.row].homeScore ?? ""
         let awayScore = leagueDetailsPresenter.filteredEvents[indexPath.row].awayScore ?? ""
         let round = leagueDetailsPresenter.filteredEvents[indexPath.row].round ?? ""
@@ -124,11 +148,13 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         cell.eventRoundLabel.text = "Round \(round) "
         
         if leagueDetailsPresenter.filteredEvents[indexPath.row].teamVsTeamImage != nil {
-             cell.eventImage.kf.setImage(with: URL(string: leagueDetailsPresenter.filteredEvents[indexPath.row].teamVsTeamImage!), placeholder: UIImage(named: "brokenImage.png"))
+        
+            cell.eventImage.kf.setImage(with: URL(string: leagueDetailsPresenter.filteredEvents[indexPath.row].teamVsTeamImage!), placeholder: UIImage(named: "brokenImage.png"))
         }
         else{
             cell.eventImage.image = UIImage(named: "brokenImage.png")
         }
+        
         if homeTeam == "" {
             cell.teamsNameLabel.text = "No Teams (Individual Sport)"
         }
@@ -251,9 +277,11 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height:500)
-    }
+    
+    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        return CGSize(width: 200, height:500)
+//    }
     
     
 
