@@ -23,7 +23,7 @@ protocol LeaguePresenter{
 class LeagueDetailsPresenter: LeaguePresenter {
     
     // MARK: - Properties
-    var LeagueDetailsView : LeagueDetailsView!
+    weak var LeagueDetailsView : LeagueDetailsView!
     var apiServices : APIServices!
     var events : [Event] = []
     var filteredEvents: [Event] = []
@@ -44,17 +44,15 @@ class LeagueDetailsPresenter: LeaguePresenter {
     func getEvents (){
         apiServices.getEventsByLeague(leagueID: league.id, responseDidArrive: eventsResponseDidArrive)
     }
-    func eventsResponseDidArrive(events: [Event]?){
-        //self.events = (Events?.filter({ $0.awayScore == nil }))!
+    func eventsResponseDidArrive (events: [Event]?){
+        
         self.events = events ?? []
         DispatchQueue.main.async {
             self.LeagueDetailsView.hideIndicator()
             self.LeagueDetailsView.renderingData()
             
         }
-//        print("here presenter Events")
-//        print(self.events.count)
-//        print(self.events[0].name!)
+
     }
     // MARK: - Teams Methods
     func getTeams(){
@@ -71,7 +69,7 @@ class LeagueDetailsPresenter: LeaguePresenter {
     
     // MARK: - Favourites Methods
     func handleFavouritesButton() {
-        //CoreDataServices.shared.clearStorage()
+        
         if CoreDataServices.shared.fetchLeague(id: league.id) == nil {
             CoreDataServices.shared.insertLeagues(league: league)
             LeagueDetailsView.setFavouritesButton(imageName: "star.fill")
