@@ -80,7 +80,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dwk-Yd-nxM">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SOm-A5-1TT">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dwk-Yd-nxM">
                                 <rect key="frame" x="0.0" y="129" width="414" height="193.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4pV-2z-eia">
@@ -173,7 +176,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pnf-jf-nQP">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pnf-jf-nQP">
                                 <rect key="frame" x="0.0" y="359.5" width="414" height="271"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AcN-jI-xXh">
@@ -266,9 +269,9 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="foa-XT-ywD">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.90000000000000002" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="foa-XT-ywD">
                                 <rect key="frame" x="0.0" y="679.5" width="414" height="182.5"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="0.92549026010000002" green="0.93333339689999995" blue="0.94117647410000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="t8P-R9-huj">
                                     <size key="itemSize" width="132" height="106"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -334,12 +337,14 @@
                         <viewLayoutGuide key="safeArea" id="YkB-3d-ieq"/>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="SOm-A5-1TT" firstAttribute="leading" secondItem="JI5-Ro-bCd" secondAttribute="leading" id="1k6-uM-tJJ"/>
                             <constraint firstItem="Pnf-jf-nQP" firstAttribute="top" secondItem="q2p-uE-zVz" secondAttribute="bottom" constant="4" id="3gt-99-irM"/>
                             <constraint firstItem="dwk-Yd-nxM" firstAttribute="trailing" secondItem="YkB-3d-ieq" secondAttribute="trailing" id="4Ch-G5-fLq"/>
                             <constraint firstItem="Pnf-jf-nQP" firstAttribute="trailing" secondItem="YkB-3d-ieq" secondAttribute="trailing" id="88I-rT-L8a"/>
                             <constraint firstItem="5ik-bo-mD0" firstAttribute="leading" secondItem="YkB-3d-ieq" secondAttribute="leading" constant="8" id="CZe-Se-ATl"/>
                             <constraint firstItem="Pnf-jf-nQP" firstAttribute="leading" secondItem="YkB-3d-ieq" secondAttribute="leading" id="Hdm-VQ-v2A"/>
                             <constraint firstItem="foa-XT-ywD" firstAttribute="top" secondItem="p0D-dM-G0k" secondAttribute="bottom" constant="4" id="LKx-5T-mIf"/>
+                            <constraint firstAttribute="trailing" secondItem="SOm-A5-1TT" secondAttribute="trailing" id="M0y-fv-Kds"/>
                             <constraint firstItem="p0D-dM-G0k" firstAttribute="leading" secondItem="YkB-3d-ieq" secondAttribute="leading" constant="8" id="Nue-cg-UfE"/>
                             <constraint firstItem="dwk-Yd-nxM" firstAttribute="leading" secondItem="YkB-3d-ieq" secondAttribute="leading" id="OD2-1I-ZwB"/>
                             <constraint firstItem="p0D-dM-G0k" firstAttribute="top" secondItem="Pnf-jf-nQP" secondAttribute="bottom" constant="16" id="RhR-hL-9uX"/>
@@ -349,9 +354,11 @@
                             <constraint firstItem="q2p-uE-zVz" firstAttribute="leading" secondItem="YkB-3d-ieq" secondAttribute="leading" constant="8" id="aXT-nG-fn0"/>
                             <constraint firstItem="dwk-Yd-nxM" firstAttribute="top" secondItem="5ik-bo-mD0" secondAttribute="bottom" constant="4" id="kFV-fV-dFE"/>
                             <constraint firstItem="5ik-bo-mD0" firstAttribute="top" secondItem="YkB-3d-ieq" secondAttribute="top" constant="8" id="kMM-xa-GN8"/>
+                            <constraint firstAttribute="bottom" secondItem="SOm-A5-1TT" secondAttribute="bottom" id="ksH-5Z-Ln2"/>
                             <constraint firstItem="dwk-Yd-nxM" firstAttribute="height" secondItem="YkB-3d-ieq" secondAttribute="height" multiplier="0.25" id="mbr-qS-WPN"/>
                             <constraint firstItem="foa-XT-ywD" firstAttribute="bottom" secondItem="YkB-3d-ieq" secondAttribute="bottom" priority="750" id="quY-hC-AoZ"/>
                             <constraint firstItem="foa-XT-ywD" firstAttribute="leading" secondItem="JI5-Ro-bCd" secondAttribute="leading" id="ufV-Wf-zw0"/>
+                            <constraint firstItem="SOm-A5-1TT" firstAttribute="top" secondItem="JI5-Ro-bCd" secondAttribute="top" id="xfe-Kd-LFj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mYF-UO-8Ro">
@@ -376,32 +383,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8xZ-PE-6Ie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2128.985507246377" y="-656.25"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="EUk-yT-6Wp">
-            <objects>
-                <viewController storyboardIdentifier="Amr" id="ZIE-Pw-uZP" customClass="AmrViewController" customModule="SportsApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="rEq-fZ-FOK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7S-DJ-RSS">
-                                <rect key="frame" x="190" y="433" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Save"/>
-                                <connections>
-                                    <action selector="addToFavourites:" destination="ZIE-Pw-uZP" eventType="touchUpInside" id="bS1-SF-mmQ"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="xWY-Jb-fJM"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="EbE-Ct-3Fj"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RIN-PZ-gK0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-372" y="-1574"/>
         </scene>
         <!--FavouriteLeaguesTableViewController-->
         <scene sceneID="lAX-LD-Q4O">

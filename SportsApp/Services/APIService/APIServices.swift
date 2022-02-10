@@ -16,7 +16,7 @@ class APIServices{
     
     //Sports Screen
     func getSports(responseDidArrive: @escaping ([Sport]?) -> Void){
-        let url = "https://www.thesportsdb.com/api/v1/json/2/all_sports.php"
+        let url = baseUrl + sportsRequest
         let request = AF.request(url)
         request.responseDecodable(of: SportsAPIResponse.self) { response in
             guard let apiResponse = response.value else{
@@ -30,7 +30,7 @@ class APIServices{
 
     //Leagues Screen
     func getLeaguesBySport(sportName: String, responseDidArrive: @escaping ([League]?) -> Void){
-        let url = "https://www.thesportsdb.com/api/v1/json/2/search_all_leagues.php?"
+        let url = baseUrl + leaguesRequest
         let request = AF.request(url, parameters: ["s" : sportName])
         request.responseDecodable(of: LeaguesAPIResponse.self) { response in
             guard let apiResponse = response.value else{
@@ -43,7 +43,7 @@ class APIServices{
 
     //LeagueDetails Screen
     func getTeamsByLeague(leagueName: String, responseDidArrive: @escaping ([Team]?) -> Void){
-        let url = "https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?"
+        let url = baseUrl + teamsRequest
         let request = AF.request(url, parameters: ["l" : leagueName])
         request.responseDecodable(of: TeamsAPIResponse.self) { response in
             guard let apiResponse = response.value else{
@@ -56,7 +56,7 @@ class APIServices{
     
     //LeagueDetails Screen
     func getEventsByLeague(leagueID: String, responseDidArrive: @escaping ([Event]?) -> Void){
-        let url = "https://www.thesportsdb.com/api/v1/json/2/eventsseason.php?"
+        let url = baseUrl + eventsRequest
         let request = AF.request(url, parameters: ["id" : leagueID])
         request.responseDecodable(of: EventsAPIResponse.self) { response in
             guard let apiResponse = response.value else{

@@ -17,7 +17,7 @@ protocol SportsView : AnyObject{
 private let reuseIdentifier = "Cell"
 
 class SportsCollectionViewController: UICollectionViewController,SportsView {
-
+    
     // MARK: - Properties
     let indicator = UIActivityIndicatorView(style: .large)
     var sportsPresenter : SportsPresenterProtocol!
@@ -28,20 +28,17 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         sportsCellSetUp()
-         
-        
         self.title = "Sports"
         showIndicator()
         sportsPresenter = SportsPreseneter(apiServices: APIServices())
         sportsPresenter.attachView(view: self)
         sportsPresenter.getSports()
-        
         self.tabBarController?.tabBar.items?[1].title = "Favourites"
-        self.tabBarController?.tabBar.items?[1].image = UIImage(systemName: "star")        
+        self.tabBarController?.tabBar.items?[1].image = UIImage(systemName: "star")
+        
     }
-
+    
     // MARK: - Methods
     func showIndicator (){
         indicator.center = self.view.center
@@ -62,27 +59,27 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         layout.minimumLineSpacing = 3
         collectionView.collectionViewLayout = layout
     }
-
+    
+    func cellLabelsSetUp(_ cell: SportsCustomCollectionViewCell, _ indexPath: IndexPath) {
+        cell.sportNameLabel.text = sportsPresenter.sports[indexPath.row].name!
+        cell.sportImage.kf.setImage(with : URL(string: sportsPresenter.sports[indexPath.row].logo), placeholder: UIImage(named: "brokenImage.png"))
+    }
+    
     // MARK: UICollectionViewDataSource
-  
-       override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       
+    
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
         return sportsPresenter.sports.count
     }
     
-
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SportsCustomCollectionViewCell
-    
-        cell.sportNameLabel.text = sportsPresenter.sports[indexPath.row].name!
-        cell.sportImage.kf.setImage(with : URL(string: sportsPresenter.sports[indexPath.row].logo), placeholder: UIImage(named: "brokenImage.png"))
-        
-        
+        cellLabelsSetUp(cell, indexPath)
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        
         let storyboard = UIStoryboard(name: "Youssef", bundle: nil)
         
         let leaguesVC = storyboard.instantiateViewController(withIdentifier: "LeaguesTableViewController") as! LeaguesTableViewController
@@ -90,12 +87,5 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         leaguesVC.leaguesPresenter.sportName = sportsPresenter.sports[indexPath.row].name
         self.navigationController?.pushViewController(leaguesVC, animated: true)
     }
-
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.width/3, height:UIScreen.main.bounds.height/2)
-    }
-
-  
-
 }

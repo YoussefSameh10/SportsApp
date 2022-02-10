@@ -10,13 +10,7 @@ import Foundation
 import UIKit
 import CoreData
 
-extension CodingUserInfoKey {
-  static let managedObjectContext = CodingUserInfoKey(rawValue: "managedObjectContext")!
-}
-
-
-
-class CoreDataServices: CoreDataOperations{
+class CoreDataServices{
     
     var appDelegate: AppDelegate!
     var viewContext : NSManagedObjectContext!
@@ -30,18 +24,12 @@ class CoreDataServices: CoreDataOperations{
         self.entity = NSEntityDescription.entity(forEntityName: "LeagueModel", in: self.viewContext)      
     }
     
+    
+    
     func insertLeagues(league: League){
 
         let newLeague = LeagueModel(entity: self.entity, insertInto: viewContext)
-        newLeague.id = league.id
-        newLeague.name = league.name
-        newLeague.alternateName = league.alternateName
-        newLeague.sport = league.sport
-        newLeague.badge = league.badge
-        newLeague.youtubeLink = league.youtubeLink
-        newLeague.currentSeason = league.currentSeason
-        
-        
+        mapLeagueToLeagueModel(newLeague, league)
         do{
             try viewContext.save()
         }
@@ -49,6 +37,16 @@ class CoreDataServices: CoreDataOperations{
             print(error.localizedDescription)
         }
         
+    }
+    
+    func mapLeagueToLeagueModel(_ newLeague: LeagueModel, _ league: League) {
+        newLeague.id = league.id
+        newLeague.name = league.name
+        newLeague.alternateName = league.alternateName
+        newLeague.sport = league.sport
+        newLeague.badge = league.badge
+        newLeague.youtubeLink = league.youtubeLink
+        newLeague.currentSeason = league.currentSeason
     }
     
     func fetchLeagues() -> [League]{
@@ -62,6 +60,21 @@ class CoreDataServices: CoreDataOperations{
         }
         return []
     }
+    
+    func mapLeagueModelToLeague(leagues: [LeagueModel]) -> [League]{
+        return leagues.map { (leagueModel) -> League in
+            let newLeague = League()
+            newLeague.id = leagueModel.id
+            newLeague.name = leagueModel.name
+            newLeague.alternateName = leagueModel.alternateName
+            newLeague.sport = leagueModel.sport
+            newLeague.badge = leagueModel.badge
+            newLeague.youtubeLink = leagueModel.youtubeLink
+            newLeague.currentSeason = leagueModel.currentSeason
+            return newLeague
+        }
+    }
+
     
     func fetchLeague(id: String) -> LeagueModel!{
         let fetchRequest = NSFetchRequest<LeagueModel>(entityName: "LeagueModel")
@@ -107,18 +120,5 @@ class CoreDataServices: CoreDataOperations{
           }
       }
     
-    func mapLeagueModelToLeague(leagues: [LeagueModel]) -> [League]{
-        return leagues.map { (leagueModel) -> League in
-            let newLeague = League()
-            newLeague.id = leagueModel.id
-            newLeague.name = leagueModel.name
-            newLeague.alternateName = leagueModel.alternateName
-            newLeague.sport = leagueModel.sport
-            newLeague.badge = leagueModel.badge
-            newLeague.youtubeLink = leagueModel.youtubeLink
-            newLeague.currentSeason = leagueModel.currentSeason
-            return newLeague
-        }
-    }
 
 }

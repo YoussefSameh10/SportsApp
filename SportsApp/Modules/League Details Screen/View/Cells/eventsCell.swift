@@ -19,7 +19,7 @@ class eventsCell: UICollectionViewCell {
     @IBOutlet weak var noEventsLabel: UILabel!
     
     override func awakeFromNib() {
-        layer.cornerRadius = 70
+        //layer.cornerRadius = 70
         eventImage.isHidden = true
        
     }
