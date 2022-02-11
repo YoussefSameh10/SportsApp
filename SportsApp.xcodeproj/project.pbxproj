@@ -202,11 +202,11 @@
 		E83E80CC27AACEB8009784C0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				E8F7B9C227AD64A6004ECEA2 /* Team Details Screen */,
-				E8FFC11B27AC36EB004665BA /* Favourite Leagues Screen */,
-				8AC78AE127AC2AF300FCE66E /* League Details Screen */,
-				E876CEC927AB1568008A0D12 /* Leagues Screen */,
 				8ACFF59927AAEBD900BA55D4 /* Sports Screen */,
+				E8FFC11B27AC36EB004665BA /* Favourite Leagues Screen */,
+				E876CEC927AB1568008A0D12 /* Leagues Screen */,
+				8AC78AE127AC2AF300FCE66E /* League Details Screen */,
+				E8F7B9C227AD64A6004ECEA2 /* Team Details Screen */,
 				E8FFC11A27AC34C5004665BA /* Shared Views */,
 				E83E80CE27AACF4A009784C0 /* Main */,
 				E83E80CD27AACEEE009784C0 /* Drafts */,

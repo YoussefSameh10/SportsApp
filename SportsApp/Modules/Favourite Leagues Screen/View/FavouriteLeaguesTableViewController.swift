@@ -74,7 +74,6 @@ class FavouriteLeaguesTableViewController: UITableViewController, FavouriteLeagu
         
         if(cell.url == ""){
             //cell.youtubeButton.isHidden = true
-            
         }
         return cell
     }
