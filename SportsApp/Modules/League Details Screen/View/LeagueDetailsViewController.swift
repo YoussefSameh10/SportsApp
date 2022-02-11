@@ -13,6 +13,7 @@ protocol LeagueDetailsView : AnyObject{
     func hideIndicator ()
     func renderingData ()
     func setFavouritesButton(imageName: String)
+    func showNetworkAlert()
 }
 class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,LeagueDetailsView{
     
@@ -44,8 +45,8 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
     
     func presenterInitialization(){
         leagueDetailsPresenter.attachView(view: self)
-        leagueDetailsPresenter.getEvents()
-        leagueDetailsPresenter.getTeams()
+        leagueDetailsPresenter.getEventsIfConnected()
+        leagueDetailsPresenter.getTeamsIfConnected()
     }
     func showIndicator (){
         indicator.center = self.view.center
@@ -63,6 +64,13 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
     
     func setFavouritesButton(imageName: String){
         favouriteButton.setBackgroundImage(UIImage(systemName: imageName), for: .normal, barMetrics: .default)
+    }
+    
+    func showNetworkAlert() {
+        let alert = UIAlertController(title: "No Network", message: "There is no internet connection", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
     
     // MARK: - CollectionV dataSource and Delegate

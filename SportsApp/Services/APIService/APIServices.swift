@@ -66,4 +66,14 @@ class APIServices{
         }
     }
     
+    func checkForNetworkConnectivity(getMethod: (() -> ()), stopIndicatorMethod: (() -> ()), showAlert: (() -> ())) {
+        if NetworkReachabilityManager()!.isReachable {
+            getMethod()
+        }
+        else{
+            stopIndicatorMethod()
+            showAlert()
+        }
+    }
+    
 }

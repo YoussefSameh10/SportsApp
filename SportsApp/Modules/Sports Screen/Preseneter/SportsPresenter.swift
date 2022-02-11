@@ -10,7 +10,7 @@ import Foundation
 protocol SportsPresenterProtocol{
     var sports : [Sport] {get}
     func attachView(view: SportsView)
-    func getSports()
+    func getSportsIfConnected()
 }
 
 class SportsPreseneter : SportsPresenterProtocol{
@@ -30,18 +30,20 @@ class SportsPreseneter : SportsPresenterProtocol{
     }
     func getSports () {
         apiServices.getSports(responseDidArrive: sportsResponseDidArrive)
-        
     }
     
     func sportsResponseDidArrive(sports: [Sport]?){
         
-        self.sports = sports!
+        self.sports = sports ?? []
        
         DispatchQueue.main.async {
             self.sportsView.hideIndicator()
             self.sportsView.renderSportsData()
         }
-        
     }
     
+    func getSportsIfConnected() {
+        apiServices.checkForNetworkConnectivity(getMethod: getSports, stopIndicatorMethod: sportsView.hideIndicator, showAlert: sportsView.showNetworkAlert)
+    }
+
 }

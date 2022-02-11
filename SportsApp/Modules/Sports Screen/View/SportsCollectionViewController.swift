@@ -8,10 +8,12 @@
 
 import UIKit
 import Kingfisher
+import Alamofire
 
 protocol SportsView : AnyObject{
-    func hideIndicator ()
-    func renderSportsData ()
+    func hideIndicator()
+    func renderSportsData()
+    func showNetworkAlert()
 }
 
 private let reuseIdentifier = "Cell"
@@ -25,6 +27,7 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
     // MARK: - Life Cycle
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,7 +36,9 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         showIndicator()
         sportsPresenter = SportsPreseneter(apiServices: APIServices())
         sportsPresenter.attachView(view: self)
-        sportsPresenter.getSports()
+        
+        sportsPresenter.getSportsIfConnected()
+        
         self.tabBarController?.tabBar.items?[1].title = "Favourites"
         self.tabBarController?.tabBar.items?[1].image = UIImage(systemName: "star")
         
@@ -64,6 +69,15 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         cell.sportNameLabel.text = sportsPresenter.sports[indexPath.row].name!
         cell.sportImage.kf.setImage(with : URL(string: sportsPresenter.sports[indexPath.row].logo), placeholder: UIImage(named: "brokenImage.png"))
     }
+    
+    func showNetworkAlert() {
+        let alert = UIAlertController(title: "No Network", message: "There is no internet connection", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    
     
     // MARK: UICollectionViewDataSource
     
