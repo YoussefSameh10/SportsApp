@@ -14,8 +14,8 @@ protocol LeaguePresenter{
     var teams: [Team] {get}
     var league: League! {get set}
     func attachView(view: LeagueDetailsView)
-    func getEvents ()
-    func getTeams()
+    func getEventsIfConnected()
+    func getTeamsIfConnected()
     func handleFavouritesButton()
     func isFavourite()
 }
@@ -89,6 +89,14 @@ class LeagueDetailsPresenter: LeaguePresenter {
         else{
             LeagueDetailsView.setFavouritesButton(imageName: "star.fill")
         }
+    }
+    
+    func getEventsIfConnected() {
+        apiServices.checkForNetworkConnectivity(getMethod: getEvents, stopIndicatorMethod: LeagueDetailsView.hideIndicator, showAlert: LeagueDetailsView.showNetworkAlert)
+    }
+    
+    func getTeamsIfConnected() {
+        apiServices.checkForNetworkConnectivity(getMethod: getTeams, stopIndicatorMethod: LeagueDetailsView.hideIndicator, showAlert: LeagueDetailsView.showNetworkAlert)
     }
     
 }

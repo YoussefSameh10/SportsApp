@@ -8,14 +8,8 @@
 
 import Foundation
 
-protocol LeaguesPresenter{
-    func attachView(viewController: LeaguesView)
-    func getLeagues()
-    var leagues: [League] {get}
-}
-
 class LeaguesTablePresenter: LeaguesPresenter{
-    var leaguesView: LeaguesView!
+    var leaguesView:LeaguesView!
     var apiService: APIServices!
     var leagues: [League] = []
     var sportName: String! = "Soccer"
@@ -33,8 +27,12 @@ class LeaguesTablePresenter: LeaguesPresenter{
     }
     
     func leaguesResponseDidArrive(responseLeagues: [League]?){
-        leagues = responseLeagues!
+        leagues = responseLeagues ?? []
         leaguesView.reloadTable()
         leaguesView.stopIndicator()
+    }
+    
+    func getLeaguesIfConnected() {
+        apiService.checkForNetworkConnectivity(getMethod: getLeagues, stopIndicatorMethod: leaguesView.stopIndicator, showAlert: leaguesView.showNetworkAlert)
     }
 }

@@ -8,19 +8,16 @@
 
 import Foundation
 
-protocol FavouriteLeaguesPresenter{
-    func attachView(viewController: FavouriteLeaguesView)
-    func getLeagues()
-    var leagues: [League] {get}
-}
-
-class FavouriteLeaguesTablePresenter: FavouriteLeaguesPresenter{
-    var favouriteLeaguesView: FavouriteLeaguesView!
+class FavouriteLeaguesTablePresenter: LeaguesPresenter{
+    
+    
+    var sportName: String!
+    var favouriteLeaguesView: LeaguesView!
     var coreDataService = CoreDataServices.shared
     var leagues: [League] = []
     
 
-    func attachView(viewController: FavouriteLeaguesView){
+    func attachView(viewController: LeaguesView){
         self.favouriteLeaguesView = viewController
         favouriteLeaguesView.reloadTable()
         favouriteLeaguesView.stopIndicator()
@@ -30,4 +27,10 @@ class FavouriteLeaguesTablePresenter: FavouriteLeaguesPresenter{
         leagues = coreDataService.fetchLeagues()
         favouriteLeaguesView.reloadTable()
     }
+    
+    func getLeaguesIfConnected() {
+        
+    }
+    
+    
 }

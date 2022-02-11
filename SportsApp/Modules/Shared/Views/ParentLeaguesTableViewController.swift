@@ -11,10 +11,20 @@ import UIKit
 private let cellReuseIdentifier = "Cell"
 
 
-class ParentLeaguesTableViewController: UITableViewController {
+class ParentLeaguesTableViewController: UITableViewController, LeaguesView {
+    
+    
+    
     let indicator = UIActivityIndicatorView(style: .medium)
     var leaguesPresenter: LeaguesPresenter!
     
+    
+    func showNetworkAlert() {
+        let alert = UIAlertController(title: "No Network", message: "There is no internet connection", preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
     
     func showAlert(){
         let alert = UIAlertController(title: "Not found", message: "this league has no YouTube channel", preferredStyle: .alert)
@@ -51,10 +61,6 @@ class ParentLeaguesTableViewController: UITableViewController {
         cell.url = leaguesPresenter.leagues[indexPath.row].youtubeLink
         cell.showAlert = showAlert
         
-        if(cell.url == ""){
-            //cell.youtubeButton.isHidden = true
-            
-        }
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -76,5 +82,12 @@ class ParentLeaguesTableViewController: UITableViewController {
         indicator.center = self.view.center
         self.view.addSubview(indicator)
         indicator.startAnimating()
+    }
+    
+    func reloadTable(){
+        self.tableView.reloadData()
+    }
+    func stopIndicator() {
+        indicator.stopAnimating()
     }
 }
