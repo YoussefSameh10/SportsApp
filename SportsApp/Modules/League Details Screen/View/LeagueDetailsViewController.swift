@@ -28,7 +28,9 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
     @IBOutlet weak var latestResultCollectionVC: UICollectionView!
     @IBOutlet weak var teamsCollectionVC: UICollectionView!
     @IBOutlet weak var favouriteButton: UIBarButtonItem!
-    
+    @IBOutlet weak var noUpcomingEventsLabel: UILabel!
+    @IBOutlet weak var noResultsLabel: UILabel!
+    @IBOutlet weak var noTeamsLabel: UILabel!
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()

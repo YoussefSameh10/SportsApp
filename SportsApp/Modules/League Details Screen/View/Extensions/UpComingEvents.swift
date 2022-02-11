@@ -33,9 +33,13 @@ extension LeagueDetailsViewController {
     
     func getNumberOfItemsInUpComingEvents() -> Int {
         leagueDetailsPresenter.filteredEvents = leagueDetailsPresenter.events.filter { $0.awayScore == nil}
-        
         if leagueDetailsPresenter.filteredEvents.count == 0 {
-            return 1
+            self.UpComingEventsCollectionVC.isHidden = true
+            self.noUpcomingEventsLabel.isHidden = false
+        }
+        else{
+            self.UpComingEventsCollectionVC.isHidden = false
+            self.noUpcomingEventsLabel.isHidden = true
         }
         return leagueDetailsPresenter.filteredEvents.count
     }
@@ -56,3 +60,4 @@ extension LeagueDetailsViewController {
         return cell
     }
 }
+

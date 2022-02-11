@@ -22,7 +22,7 @@ extension LeagueDetailsViewController {
     }
     
     func showingAndHidingEventsCellsLabels(_ cell: eventsCell, noEvents: Bool) {
-        cell.noEventsLabel.isHidden = !noEvents
+        //cell.noEventsLabel.isHidden = !noEvents
         cell.eventDateLabel.isHidden = noEvents
         cell.eventRoundLabel.isHidden = noEvents
         //cell.eventImage.isHidden = noEvents

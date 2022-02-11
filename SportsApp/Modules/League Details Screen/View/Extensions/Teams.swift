@@ -32,7 +32,7 @@ extension LeagueDetailsViewController {
     }
     
     func showingAndHidingTeamsCellsLabels(_ cell: TeamsCell, noTeams: Bool) {
-       cell.noTeamsLabel.isHidden = !noTeams
+       //cell.noTeamsLabel.isHidden = !noTeams
        cell.teamImage.isHidden = noTeams
    }
     
@@ -48,7 +48,12 @@ extension LeagueDetailsViewController {
     
     func getNumberOfItemsInTeams() -> Int {
         if leagueDetailsPresenter.teams.count == 0 {
-            return 1
+            self.teamsCollectionVC.isHidden = true
+            self.noTeamsLabel.isHidden = false
+        }
+        else{
+            self.teamsCollectionVC.isHidden = false
+            self.noTeamsLabel.isHidden = true
         }
         return leagueDetailsPresenter.teams.count
     }

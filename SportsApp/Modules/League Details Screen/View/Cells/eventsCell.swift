@@ -16,7 +16,7 @@ class eventsCell: UICollectionViewCell {
     @IBOutlet weak var eventDateLabel: UILabel!
     @IBOutlet weak var eventTimeLabel: UILabel!
     @IBOutlet weak var teamsNameLabel: UILabel!
-    @IBOutlet weak var noEventsLabel: UILabel!
+
     
     override func awakeFromNib() {
         //layer.cornerRadius = 70
