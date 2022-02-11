@@ -32,7 +32,12 @@ extension LeagueDetailsViewController {
     func getNumberOfItemsInLatestResults() -> Int {
         leagueDetailsPresenter.filteredEvents = leagueDetailsPresenter.events.filter { $0.awayScore != nil}
         if leagueDetailsPresenter.filteredEvents.count == 0 {
-            return 1
+            self.latestResultCollectionVC.isHidden = true
+            self.noResultsLabel.isHidden = false
+        }
+        else{
+            self.latestResultCollectionVC.isHidden = false
+            self.noResultsLabel.isHidden = true
         }
         return leagueDetailsPresenter.filteredEvents.count
     }
