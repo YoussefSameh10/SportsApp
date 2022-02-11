@@ -21,7 +21,7 @@ extension LeagueDetailsViewController {
     
     func latestResultCellSizeSetUp() {
         let layout = UICollectionViewFlowLayout()
-        let itemWidth = self.UpComingEventsCollectionVC.bounds.width
+        let itemWidth = self.UpComingEventsCollectionVC.bounds.width - 32
         let itemHeight = self.UpComingEventsCollectionVC.bounds.height / 1.3 - 3
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumInteritemSpacing = 3
