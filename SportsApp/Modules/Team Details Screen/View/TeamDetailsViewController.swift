@@ -52,10 +52,10 @@ class TeamDetailsViewController: UIViewController, TeamDetailsView {
     
     func stadiumImageSetUp() {
         if teamPresenter.team.stadiumImage != nil {
-            stadiumImage.kf.setImage(with: URL(string: teamPresenter.team.stadiumImage), placeholder: UIImage(named: "stadiumPlaceholder2.svg"))
+            stadiumImage.kf.setImage(with: URL(string: teamPresenter.team.stadiumImage), placeholder: UIImage(named: "stadiumPlaceholder-1"))
         }
         else{
-            stadiumImage.image = UIImage(named: "stadiumPlaceholder2.svg")
+            stadiumImage.image = UIImage(named: "stadiumPlaceholder-1")
         }
     }
     
