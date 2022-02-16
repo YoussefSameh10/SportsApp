@@ -13,7 +13,7 @@ extension LeagueDetailsViewController {
     
     func eventsCellSetUp(_ cell: eventsCell, _ indexPath: IndexPath) {
         
-        showingAndHidingEventsCellsLabels(cell, noEvents: false)
+        
         roundSetUp(cell, indexPath)
         eventImageSetUp(indexPath, cell)
         teamsNamesSetUp(cell,indexPath)
@@ -21,15 +21,7 @@ extension LeagueDetailsViewController {
         dateAndTimeSetUp(cell, indexPath)
     }
     
-    func showingAndHidingEventsCellsLabels(_ cell: eventsCell, noEvents: Bool) {
-        //cell.noEventsLabel.isHidden = !noEvents
-        cell.eventDateLabel.isHidden = noEvents
-        cell.eventRoundLabel.isHidden = noEvents
-        //cell.eventImage.isHidden = noEvents
-        cell.eventTimeLabel.isHidden = noEvents
-        cell.eventResultLabel.isHidden = noEvents
-        cell.teamsNameLabel.isHidden = noEvents
-    }
+    
     
     func roundSetUp(_ cell : eventsCell , _ indexPath : IndexPath){
         let round = leagueDetailsPresenter.filteredEvents[indexPath.row].round ?? ""

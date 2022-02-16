@@ -46,12 +46,7 @@ extension LeagueDetailsViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "latestResultCell", for: indexPath) as! eventsCell
         cell.layer.cornerRadius = 30
         leagueDetailsPresenter.filteredEvents = leagueDetailsPresenter.events.filter { $0.awayScore != nil}
-        if leagueDetailsPresenter.filteredEvents.count != 0 {
-            eventsCellSetUp(cell, indexPath)
-        }
-        else{
-            showingAndHidingEventsCellsLabels(cell, noEvents: true)
-        }
+        eventsCellSetUp(cell, indexPath)
         return cell
     }
 }
