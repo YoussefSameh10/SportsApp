@@ -28,6 +28,8 @@ class LeaguesTablePresenter: LeaguesPresenter{
     
     func leaguesResponseDidArrive(responseLeagues: [League]?){
         leagues = responseLeagues ?? []
+        leagues.swapAt(0, leagues.count - 1)
+        leagues.swapAt(1, leagues.count - 1)
         leaguesView.reloadTable()
         leaguesView.stopIndicator()
     }

@@ -29,8 +29,14 @@ class APIServices{
 
     //Leagues Screen
     func getLeaguesBySport(sportName: String, responseDidArrive: @escaping ([League]?) -> Void){
+        var params : [ String : String] = [:]
+        if sportName != "Soccer"{
+            params = ["s" : sportName]
+        }else{
+            params = ["s" : sportName , "c" : "England"]
+        }
         let url = baseUrl + leaguesRequest
-        let request = AF.request(url, parameters: ["s" : sportName])
+        let request = AF.request(url, parameters: params)
         request.responseDecodable(of: LeaguesAPIResponse.self) { response in
             guard let apiResponse = response.value else{
                 responseDidArrive(nil)
