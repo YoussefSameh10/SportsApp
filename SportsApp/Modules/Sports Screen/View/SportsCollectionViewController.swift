@@ -34,7 +34,8 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         sportsCellSetUp()
         self.title = "Sports"
         showIndicator()
-        sportsPresenter = SportsPreseneter(apiServices: APIServices())
+        //sportsPresenter = SportsPreseneter(apiServices: APIServices())
+        sportsPresenter = AppDependencies.sportsPresenter
         sportsPresenter.attachView(view: self)
         
         sportsPresenter.getSportsIfConnected()
@@ -95,9 +96,9 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let storyboard = UIStoryboard(name: "Youssef", bundle: nil)
-        
         let leaguesVC = storyboard.instantiateViewController(withIdentifier: "LeaguesTableViewController") as! LeaguesTableViewController
-        leaguesVC.leaguesPresenter = LeaguesTablePresenter(apiService: APIServices())
+        //leaguesVC.leaguesPresenter = LeaguesTablePresenter(apiService: APIServices())
+        leaguesVC.leaguesPresenter = AppDependencies.leaguesPresenter
         leaguesVC.leaguesPresenter.sportName = sportsPresenter.sports[indexPath.row].name
         self.navigationController?.pushViewController(leaguesVC, animated: true)
     }

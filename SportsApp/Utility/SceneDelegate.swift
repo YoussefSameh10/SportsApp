@@ -23,10 +23,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
         
         guard let _ = (scene as? UIWindowScene) else { return }
-        
+        /*
         let storyboard = UIStoryboard(name: "Amr", bundle: nil)
         let initialViewController = storyboard.instantiateViewController(withIdentifier: "InitialTabBarController")
-        self.window?.rootViewController = initialViewController
+         */
+        self.window?.rootViewController = AppDependencies.initialTabBarController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

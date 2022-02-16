@@ -68,7 +68,8 @@ class ParentLeaguesTableViewController: UITableViewController, LeaguesView {
         let storyboard = UIStoryboard(name: "Amr", bundle: nil)
         let leagueDetailsNavController = storyboard.instantiateViewController(withIdentifier: "LeagueDetailsNavigationController") as! UINavigationController
         let leagueDetailsVC = leagueDetailsNavController.viewControllers.first as! LeagueDetailsViewController
-        leagueDetailsVC.leagueDetailsPresenter = LeagueDetailsPresenter(apiServices: APIServices())
+        //leagueDetailsVC.leagueDetailsPresenter = LeagueDetailsPresenter(apiServices: APIServices())
+        leagueDetailsVC.leagueDetailsPresenter = AppDependencies.leagueDetailsPresenter
         leagueDetailsVC.leagueDetailsPresenter.league = leaguesPresenter.leagues[indexPath.row]
         self.present(leagueDetailsNavController, animated: true, completion: nil)
     }

@@ -25,8 +25,8 @@ class FavouriteLeaguesTableViewController: ParentLeaguesTableViewController {
         //self.tabBarItem.image = UIImage(named: "favourites.png")
         startIndicator()
         
-        leaguesPresenter = FavouriteLeaguesTablePresenter()
-        
+        //leaguesPresenter = FavouriteLeaguesTablePresenter()
+        leaguesPresenter = AppDependencies.favouriteLeaguesPresenter
         leaguesPresenter.attachView(viewController: self)
         
     }
