@@ -33,6 +33,10 @@ extension LeagueDetailsViewController {
     
     func getNumberOfItemsInUpComingEvents() -> Int {
         leagueDetailsPresenter.filteredEvents = leagueDetailsPresenter.events.filter { $0.awayScore == nil}
+        if leagueDetailsPresenter.filteredEvents.count == 0 && leagueDetailsPresenter.events.count != 0{
+            let eventsCount = leagueDetailsPresenter.events.count
+            leagueDetailsPresenter.filteredEvents.append(contentsOf: leagueDetailsPresenter.events[eventsCount/2...eventsCount - 1])
+        }
         if leagueDetailsPresenter.filteredEvents.count == 0 {
             self.UpComingEventsCollectionVC.isHidden = true
             self.noUpcomingEventsLabel.isHidden = false
@@ -48,15 +52,11 @@ extension LeagueDetailsViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upComingCell", for: indexPath) as! eventsCell
         cell.layer.cornerRadius = 50
         leagueDetailsPresenter.filteredEvents = leagueDetailsPresenter.events.filter { $0.awayScore == nil}
-        
-        if leagueDetailsPresenter.filteredEvents.count != 0 {
-            eventsCellSetUp(cell, indexPath)
+        if leagueDetailsPresenter.filteredEvents.count == 0 && leagueDetailsPresenter.events.count != 0{
+            let eventsCount = leagueDetailsPresenter.events.count
+            leagueDetailsPresenter.filteredEvents.append(contentsOf: leagueDetailsPresenter.events[eventsCount/2...eventsCount - 1])
         }
-        else{
-            showingAndHidingEventsCellsLabels(cell, noEvents: true)
-        }
-        
-        
+        eventsCellSetUp(cell, indexPath)
         return cell
     }
 }
