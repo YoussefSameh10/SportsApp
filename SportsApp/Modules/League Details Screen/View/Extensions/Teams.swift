@@ -74,7 +74,8 @@ extension LeagueDetailsViewController {
     func navigateToTeamsScreen(indexPath: IndexPath){
         let storyboard = UIStoryboard(name: "Youssef", bundle: nil)
         let teamVC = storyboard.instantiateViewController(identifier: "TeamDetailsViewController") as! TeamDetailsViewController
-        teamVC.teamPresenter = TeamDetailsPresenter()
+        //teamVC.teamPresenter = TeamDetailsPresenter()
+        teamVC.teamPresenter = AppDependencies.teamDetailsPresenter
         teamVC.teamPresenter.team = leagueDetailsPresenter.teams[indexPath.row]
         self.navigationController?.pushViewController(teamVC, animated: true)
     }

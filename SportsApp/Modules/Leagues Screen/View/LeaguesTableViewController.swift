@@ -26,12 +26,7 @@ class LeaguesTableViewController: ParentLeaguesTableViewController {
         startIndicator()
         leaguesPresenter.attachView(viewController: self)
         leaguesPresenter.getLeaguesIfConnected()
-        
-    
     }
-    
-    
-    
 }
 
 
