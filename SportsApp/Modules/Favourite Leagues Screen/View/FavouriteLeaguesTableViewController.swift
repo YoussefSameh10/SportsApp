@@ -24,11 +24,12 @@ class FavouriteLeaguesTableViewController: ParentLeaguesTableViewController {
         super.viewDidLoad()
         //self.tabBarItem.image = UIImage(named: "favourites.png")
         startIndicator()
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "white background texture.png")!)
         
         //leaguesPresenter = FavouriteLeaguesTablePresenter()
         leaguesPresenter = AppDependencies.favouriteLeaguesPresenter
         leaguesPresenter.attachView(viewController: self)
+        super.navBarSetup()
         
     }
-
 }

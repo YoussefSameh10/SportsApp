@@ -42,7 +42,8 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         
         self.tabBarController?.tabBar.items?[1].title = "Favourites"
         self.tabBarController?.tabBar.items?[1].image = UIImage(systemName: "star")
-        
+    
+        navBarSetup()
     }
     
     // MARK: - Methods
@@ -76,6 +77,12 @@ class SportsCollectionViewController: UICollectionViewController,SportsView {
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func navBarSetup() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     

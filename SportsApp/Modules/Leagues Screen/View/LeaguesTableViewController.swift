@@ -26,6 +26,8 @@ class LeaguesTableViewController: ParentLeaguesTableViewController {
         startIndicator()
         leaguesPresenter.attachView(viewController: self)
         leaguesPresenter.getLeaguesIfConnected()
+        self.tableView.backgroundView = UIImageView(image: UIImage(named: "white background texture.png")!)
+        super.navBarSetup()
     }
 }
 

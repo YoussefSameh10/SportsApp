@@ -41,6 +41,7 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         teamsCollectionVCSetUp()
         presenterInitialization()
         leagueDetailsPresenter.isFavourite()
+        navBarSetup()
         self.title = leagueDetailsPresenter.league.name
     }
     // MARK: - Methods
@@ -73,6 +74,12 @@ class LeagueDetailsViewController: UIViewController,UICollectionViewDelegate,UIC
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func navBarSetup() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
     }
     
     // MARK: - CollectionV dataSource and Delegate
