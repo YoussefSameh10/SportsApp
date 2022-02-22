@@ -23,8 +23,8 @@ extension LeagueDetailsViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let itemWidth = self.UpComingEventsCollectionVC.bounds.width / 3
-        let itemHeight = self.UpComingEventsCollectionVC.bounds.height / 2 - 3
+        let itemWidth = self.teamsCollectionVC.bounds.width / 3
+        let itemHeight = self.teamsCollectionVC.bounds.height  - 3
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumInteritemSpacing = 3
         layout.minimumLineSpacing = 3
