@@ -33,6 +33,12 @@ class ParentLeaguesTableViewController: UITableViewController, LeaguesView {
         self.present(alert, animated: true, completion: nil)
     }
 
+    func navBarSetup() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {

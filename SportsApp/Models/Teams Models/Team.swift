@@ -18,6 +18,11 @@ class Team: Decodable{
     var stadiumImage: String!
     var teamBadge: String!
     var teamJersey: String!
+    var website: String!
+    var facebookLink: String!
+    var twitterLink: String!
+    var instagramLink: String!
+    
     
     enum CodingKeys: String, CodingKey{
         case id = "idTeam"
@@ -29,9 +34,13 @@ class Team: Decodable{
         case stadiumImage = "strStadiumThumb"
         case teamBadge = "strTeamBadge"
         case teamJersey = "strTeamJersey"
-        
+        case website = "strWebsite"
+        case facebookLink = "strFacebook"
+        case twitterLink = "strTwitter"
+        case instagramLink = "strInstagram"
     }
 }
+
 
 
 

@@ -35,6 +35,9 @@ class TeamDetailsViewController: UIViewController, TeamDetailsView {
         
         teamPresenter.attachView(teamDetailsView: self)
         teamLabelsSetUp()
+        navBarSetup()
+        
+    
     }
     
     // MARK: - Methods
@@ -103,5 +106,28 @@ class TeamDetailsViewController: UIViewController, TeamDetailsView {
         else{
             establishmentYear.text = teamPresenter.team.establishmentYear
         }
+    }
+    
+    func navBarSetup() {
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = .clear
+    }
+    
+    @IBAction func openWebsite(_ sender: Any) {
+        let url = "https://\(teamPresenter.team.website!)"
+        UIApplication.shared.open(NSURL(string: url)! as URL)
+    }
+    @IBAction func openFacebook(_ sender: Any) {
+        let url = "https://\(teamPresenter.team.facebookLink!)"
+        UIApplication.shared.open(NSURL(string: url)! as URL)
+    }
+    @IBAction func openTwitter(_ sender: Any) {
+        let url = "https://www.\(teamPresenter.team.twitterLink!)"
+        UIApplication.shared.open(NSURL(string: url)! as URL)
+    }
+    @IBAction func openInstagram(_ sender: Any) {
+        let url = "https://www.\(teamPresenter.team.instagramLink!)"
+        UIApplication.shared.open(NSURL(string: url)! as URL)
     }
 }
