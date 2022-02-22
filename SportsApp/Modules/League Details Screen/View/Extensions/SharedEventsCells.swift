@@ -12,16 +12,12 @@ import UIKit
 extension LeagueDetailsViewController {
     
     func eventsCellSetUp(_ cell: eventsCell, _ indexPath: IndexPath) {
-        
-        
         roundSetUp(cell, indexPath)
         eventImageSetUp(indexPath, cell)
         teamsNamesSetUp(cell,indexPath)
         scoreSetUp(cell,indexPath)
         dateAndTimeSetUp(cell, indexPath)
     }
-    
-    
     
     func roundSetUp(_ cell : eventsCell , _ indexPath : IndexPath){
         let round = leagueDetailsPresenter.filteredEvents[indexPath.row].round ?? ""

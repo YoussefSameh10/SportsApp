@@ -23,11 +23,11 @@ extension LeagueDetailsViewController {
         
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        let itemWidth = self.UpComingEventsCollectionVC.bounds.width/1.3 - 3
+        let itemWidth = self.UpComingEventsCollectionVC.bounds.width/1.2 - 3
         let itemHeight = self.UpComingEventsCollectionVC.bounds.height
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
         layout.minimumInteritemSpacing = 3
-        layout.minimumLineSpacing = 3
+        //layout.minimumLineSpacing = 12
         self.UpComingEventsCollectionVC.collectionViewLayout = layout
     }
     
@@ -50,7 +50,7 @@ extension LeagueDetailsViewController {
     
     func drawUpComingEventsCell(_ collectionView: UICollectionView, _ indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "upComingCell", for: indexPath) as! eventsCell
-        cell.layer.cornerRadius = 50
+        cell.layer.cornerRadius = 25
         leagueDetailsPresenter.filteredEvents = leagueDetailsPresenter.events.filter { $0.awayScore == nil}
         if leagueDetailsPresenter.filteredEvents.count == 0 && leagueDetailsPresenter.events.count != 0{
             let eventsCount = leagueDetailsPresenter.events.count

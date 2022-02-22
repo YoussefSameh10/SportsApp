@@ -20,16 +20,7 @@ class eventsCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         //layer.cornerRadius = 70
-        eventImage.isHidden = true
-       
     }
-    
-//    @IBOutlet weak var latestResultRoundLabel: UILabel!
-//    @IBOutlet weak var latestResultImage: UIImageView!
-//    @IBOutlet weak var latestResultLabel: UILabel!
-//    @IBOutlet weak var latestResultDateLabel: UILabel!
-//    @IBOutlet weak var latestResultTimeLabel: UILabel!
-    
     
     
 }
