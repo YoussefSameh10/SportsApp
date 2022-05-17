@@ -11,6 +11,6 @@ import Foundation
 class  LeaguesAPIResponse: Decodable{
     var leagues: [League] = []
     enum CodingKeys: String, CodingKey{
-        case leagues = "countrys"
+        case leagues = "countries"
     }
 }
