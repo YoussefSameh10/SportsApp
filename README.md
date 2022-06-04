@@ -22,25 +22,25 @@ Sports App enables you to view the data, events and teams of different leagues i
 
 > 
     View a list of sports
-![Sports](https://raw.githubusercontent.com/YoussefSameh10/WeatherApp/main/README%20Assets/Home%20Screen.png)
+![Sports](https://raw.githubusercontent.com/YoussefSameh10/SportsApp/main/README%20Assets/Home%20Screen.png)
 
 > 
     View leagues of a specific sport
-![Leagues](https://raw.githubusercontent.com/YoussefSameh10/WeatherApp/main/README%20Assets/Leagues%20Screen.png)
+![Leagues](https://raw.githubusercontent.com/YoussefSameh10/SportsApp/main/README%20Assets/Leagues%20Screen.png)
 
 > 
     View a specific league's details
-![League](https://raw.githubusercontent.com/YoussefSameh10/WeatherApp/main/README%20Assets/League%20Screen.png)
+![League](https://raw.githubusercontent.com/YoussefSameh10/SportsApp/main/README%20Assets/League%20Screen.png)
 
 >   
     View your favorite leagues
     
-![Favorites](https://raw.githubusercontent.com/YoussefSameh10/WeatherApp/main/README%20Assets/Favorites%20Screen.png)
+![Favorites](https://raw.githubusercontent.com/YoussefSameh10/SportsApp/main/README%20Assets/Favorites%20Screen.png)
     
 >   
     View team details
 
-![Team](https://raw.githubusercontent.com/YoussefSameh10/WeatherApp/main/README%20Assets/Details%20Screen.png)
+![Team](https://raw.githubusercontent.com/YoussefSameh10/SportsApp/main/README%20Assets/Details%20Screen.png)
 
 
 # Contributors
